@@ -11,23 +11,40 @@ public class DonkeyKongController : MonoBehaviour
 
     [SerializeField] private TopDownBarrel _barrelPrefab;
 
+    Animator DonkeyAnimator;
     private float _timeSinceLastShot;
 
     void Start()
     {
+       DonkeyAnimator = GetComponent<Animator>();
         _timeSinceLastShot = _shotCooldown;
     }
 
     void Update ()
     {
         if (_timeSinceLastShot < _shotCooldown)
-            _timeSinceLastShot += Time.deltaTime;
-		if (Input.GetKey(KeyCode.LeftArrow)||Input.GetKey(KeyCode.A))
+        { 
+                _timeSinceLastShot += Time.deltaTime;
+        }
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+        {
             GoLeft();
-        if (Input.GetKey(KeyCode.RightArrow)||Input.GetKey(KeyCode.D))
+            DonkeyAnimator.SetBool("move", true);
+        }
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+        {
             GoRight();
-	    if (Input.GetKeyDown(KeyCode.Space))
-	        TryFiring();
+            DonkeyAnimator.SetBool("move", true);
+        }
+        if (!Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.A))
+        {
+            DonkeyAnimator.SetBool("move", false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            TryFiring();
+        }
     }
 
     private void TryFiring()
@@ -45,6 +62,7 @@ public class DonkeyKongController : MonoBehaviour
 
     private void GoLeft()
     {
+        
         gameObject.transform.position += Vector3.left * Time.deltaTime * _movementSpeed;
     }
 
