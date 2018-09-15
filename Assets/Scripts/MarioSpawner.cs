@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.ComponentModel.Design.Serialization;
 using UnityEngine;
 
 public class MarioSpawner : MonoBehaviour
@@ -9,8 +10,10 @@ public class MarioSpawner : MonoBehaviour
     [SerializeField] private float _waveSize;
     [SerializeField] private float _increaseAddendOfWaveSize;
     [SerializeField] private GameObject _spawnObject;
-    [SerializeField] private GameObject _spawner;
+    [SerializeField] private GameObject _spawnerLeft;
+    [SerializeField] private GameObject _spawnerRight;
     [SerializeField] private float _spawnTime;
+
     
 	void Start ()
 	{
@@ -24,7 +27,9 @@ public class MarioSpawner : MonoBehaviour
         StartNewWave();
         while (true)
         {
-            Instantiate(_spawnObject, _spawner.transform);
+       
+            GameObject randomSpawner = (Random.Range(0,2)==0) ? _spawnerLeft : _spawnerRight;
+            Instantiate(_spawnObject, randomSpawner.transform);
             yield return new WaitForSeconds(_spawnTime);
         } 
     }

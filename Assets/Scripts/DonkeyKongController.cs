@@ -22,9 +22,9 @@ public class DonkeyKongController : MonoBehaviour
     {
         if (_timeSinceLastShot < _shotCooldown)
             _timeSinceLastShot += Time.deltaTime;
-		if (Input.GetKey(KeyCode.LeftArrow))
+		if (Input.GetKey(KeyCode.LeftArrow)||Input.GetKey(KeyCode.A))
             GoLeft();
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow)||Input.GetKey(KeyCode.D))
             GoRight();
 	    if (Input.GetKeyDown(KeyCode.Space))
 	        TryFiring();
