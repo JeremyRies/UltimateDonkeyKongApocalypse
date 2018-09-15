@@ -22,8 +22,8 @@ GameObject:
   - component: {fileID: 114335352385167398}
   - component: {fileID: 50014485192256956}
   - component: {fileID: 212464419135622854}
-  - component: {fileID: 70323688522501228}
   - component: {fileID: 95253266332546898}
+  - component: {fileID: 61503264905791364}
   m_Layer: 0
   m_Name: TopDownBarrel
   m_TagString: Barrel
@@ -64,8 +64,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!70 &70323688522501228
-CapsuleCollider2D:
+--- !u!61 &61503264905791364
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -77,8 +77,18 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.16, y: 0.1}
-  m_Direction: 0
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 0.625}
+    newSize: {x: 0.49, y: 0.38}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.625}
+  m_EdgeRadius: 0
 --- !u!95 &95253266332546898
 Animator:
   serializedVersion: 3
