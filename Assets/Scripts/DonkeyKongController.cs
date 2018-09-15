@@ -7,12 +7,15 @@ public class DonkeyKongController : MonoBehaviour
     [SerializeField] private float _projectileSpeed;
     [SerializeField] private float _movementSpeed;
     [SerializeField] private float _shotCooldown;
+    [SerializeField] private float _collectableDuration;
     [Space(10)]
 
-    [SerializeField] private TopDownBarrel _barrelPrefab;
-    //[SerializeField] private RollingBarrel _rollingBarrelPrefab;
+    [SerializeField] private TopDownBarrel _normalBarrel;
+    [SerializeField] private TopDownBarrel _bigBarrel;
 
-    private string activeBarrel;
+    private ArrayList _items;
+
+    private TopDownBarrel projectile;
 
     Animator DonkeyAnimator;
     private float _timeSinceLastShot;
@@ -21,8 +24,8 @@ public class DonkeyKongController : MonoBehaviour
     {
        DonkeyAnimator = GetComponent<Animator>();
         _timeSinceLastShot = _shotCooldown;
-
-        activeBarrel = "NormalBarrel";
+        _items = new ArrayList();
+        projectile = _normalBarrel;
     }
 
     void Update ()
@@ -44,7 +47,12 @@ public class DonkeyKongController : MonoBehaviour
         if (!Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.A) )
         {
             DonkeyAnimator.SetBool("move", false);
-            
+        }
+
+        if (Input.GetKey(KeyCode.X))
+        {
+            projectile = _bigBarrel;
+            StartCoroutine(CollectableTimer());
         }
         
         if (Input.GetKey(KeyCode.Space))
@@ -67,7 +75,7 @@ public class DonkeyKongController : MonoBehaviour
     private void Fire()
     {
         DonkeyAnimator.SetBool("shoot", true);
-        var barrelInstance = Instantiate(_barrelPrefab, new Vector2(transform.position.x, transform.position.y+0.5f), Quaternion.identity);
+        var barrelInstance = Instantiate(projectile, new Vector2(transform.position.x, transform.position.y+0.5f), Quaternion.identity);
         barrelInstance.Throw(_projectileSpeed);
     }
 
@@ -85,6 +93,12 @@ public class DonkeyKongController : MonoBehaviour
     public void ReceivedCollectable(string typeOfCollectable)
     {
         Debug.Log("Collected Collectable :D");
-        activeBarrel = typeOfCollectable;
+        _items.Add(CollectableEnum.Big);
+    }
+
+    IEnumerator CollectableTimer()
+    {
+        yield return new WaitForSeconds(_collectableDuration);
+        projectile = _normalBarrel;
     }
 }
