@@ -8,6 +8,7 @@ TextureImporter:
     21300006: lvlAssets_3
     21300008: lvlAssets_4
     21300010: lvlAssets_5
+    21300012: lvlAssets_6
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -51,7 +52,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -115,18 +116,22 @@ TextureImporter:
       name: lvlAssets_0
       rect:
         serializedVersion: 2
-        x: 75
-        y: 187
-        width: 48
-        height: 9
+        x: 0
+        y: 156
+        width: 195
+        height: 62
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -22.5, y: 1}
+        - {x: -22.5, y: 9}
+        - {x: 25.5, y: 9}
+        - {x: 25.5, y: 1}
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7de89233b03b02a49b8b84ce4ac79046
+      spriteID: fdf764c939f6bae4f8708e9f61915d66
       vertices: []
       indices: 
       edges: []
@@ -140,13 +145,13 @@ TextureImporter:
         width: 208
         height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae0000988288b6344a83d6c3805c7987
+      spriteID: de2d3322e9613c54aaff2b12df2d6867
       vertices: []
       indices: 
       edges: []
@@ -160,13 +165,13 @@ TextureImporter:
         width: 195
         height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da04b4812ad3ebe4dbba564701b8f39f
+      spriteID: 151397a9b0a594842b4af6659c5c30dd
       vertices: []
       indices: 
       edges: []
@@ -180,13 +185,13 @@ TextureImporter:
         width: 208
         height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 62cf15e46684a334bbdbbe30fe0564c8
+      spriteID: c45779aaaec11664cb363d3b019f6a97
       vertices: []
       indices: 
       edges: []
@@ -200,13 +205,13 @@ TextureImporter:
         width: 195
         height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75b966143d666744cbee4533f207dbcc
+      spriteID: 1d050fa3fe614224dbe1dcad5573f74a
       vertices: []
       indices: 
       edges: []
@@ -220,13 +225,33 @@ TextureImporter:
         width: 211
         height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 78766198fbf7c0946bdb0782e367b0a2
+      spriteID: fa2e1ba8aa39bf54aa82a9ea34134a0f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lvlAssets_6
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 109
+        width: 113
+        height: 109
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a573e696e0914f468829cefd912377f
       vertices: []
       indices: 
       edges: []
