@@ -14,7 +14,7 @@ public class Mario : MonoBehaviour {
 	void Start () {
         body = gameObject.GetComponent<Rigidbody2D>();
         MarioAnimator = GetComponent<Animator>();
-        Move(Vector2.right);
+        Spawn();
     }
 	
 	// Update is called once per frame
