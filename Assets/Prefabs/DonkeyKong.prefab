@@ -71,7 +71,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39a3321fdb1f09f468bf0b8a2793eb58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _projectileSpeed: 1.85
+  _projectileSpeed: 3
   _movementSpeed: 6.8
   _shotCooldown: 3.22
   _barrelPrefab: {fileID: 114335352385167398, guid: 331cad2d0a2de8048b86f7f4657ce33f,
