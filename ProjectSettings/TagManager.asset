@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ladder
   - Barrel
+  - Floor
   layers:
   - Default
   - TransparentFX
