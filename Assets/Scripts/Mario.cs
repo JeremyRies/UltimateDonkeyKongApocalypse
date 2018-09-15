@@ -10,6 +10,7 @@ public class Mario : MonoBehaviour {
     public float jumpchance;
     bool jumping;
     bool climbing;
+    bool dead = false;
     Animator MarioAnimator;
     Vector2 movement;
     Rigidbody2D body;
@@ -34,7 +35,7 @@ public class Mario : MonoBehaviour {
         {
             int rand = Random.Range(0, 100);
 
-            if (rand <= jumpchance && jumping == false && climbing == false)
+            if (rand <= jumpchance && jumping == false && climbing == false && dead == false)
             {
                 StartCoroutine(Jump(0.5f,3));
             }
@@ -91,6 +92,7 @@ public class Mario : MonoBehaviour {
     public IEnumerator Die()
     {
         int state = 0;
+        dead = true;
         GetComponent<BoxCollider2D>().enabled = false;
 
         while(state ==0)
