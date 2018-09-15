@@ -52,4 +52,9 @@ public class DonkeyKongController : MonoBehaviour
     {
         gameObject.transform.position += Vector3.right * Time.deltaTime * _movementSpeed;
     }
+
+    public void ReceivedCollectable()
+    {
+        Debug.Log("Collected Collectable :D");
+    }
 }
