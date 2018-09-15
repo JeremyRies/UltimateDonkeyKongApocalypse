@@ -45,11 +45,11 @@ public class DonkeyKongController : MonoBehaviour
 
     private void GoLeft()
     {
-        gameObject.transform.position += Vector3.left * _movementSpeed;
+        gameObject.transform.position += Vector3.left * Time.deltaTime * _movementSpeed;
     }
 
     private void GoRight()
     {
-        gameObject.transform.position += Vector3.right * _movementSpeed;
+        gameObject.transform.position += Vector3.right * Time.deltaTime * _movementSpeed;
     }
 }
