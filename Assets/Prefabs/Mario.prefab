@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  boundarys: 20
+  boundarys: 10
 --- !u!212 &212487707076564954
 SpriteRenderer:
   m_ObjectHideFlags: 1
