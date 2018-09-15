@@ -27,9 +27,16 @@ public class CollectableSpawner : MonoBehaviour
                 yield return null;
             }*/
 			GameObject collectable = Instantiate(_collectablePrefab);
+			collectable.GetComponent<Collectable>().SetType(RandomCollectable());
 			collectable.transform.position = new Vector3(Random.Range(-5, 5), Random.Range(-4, 2), 0);
 			yield return new WaitForSeconds(_spawnTime);
 		}
+	}
+
+	private CollectableEnum RandomCollectable()
+	{
+		// return some random enumtype;
+		return CollectableEnum.Big;
 	}
 	
 }

@@ -3,6 +3,7 @@
 [CreateAssetMenu(menuName = "CollectableType")]
 public class CollectableObject : ScriptableObject
 {
-   [SerializeField]private CollectableEnum _type;
-   [SerializeField]private GameObject _typePrefab;
+   [SerializeField]public CollectableEnum Type;
+   [SerializeField] public Sprite Icon;
+   [SerializeField]public GameObject Prefab;
 }

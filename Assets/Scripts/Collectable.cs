@@ -2,11 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Collectable : MonoBehaviour {
-
+public class Collectable : MonoBehaviour
+{
+	private CollectableEnum _type;
+	
 	void Start()
 	{
 		StartCoroutine(Destroy());
+	}
+
+	public void SetType(CollectableEnum type)
+	{
+		_type = type;
 	}
 	
 	private void OnTriggerEnter2D(Collider2D other)
@@ -14,7 +21,7 @@ public class Collectable : MonoBehaviour {
 		//give status update to DonkeyKong
 		if (other.gameObject.tag == "Barrel")
 		{
-			GameObject.Find("DonkeyKong").GetComponent<DonkeyKongController>().ReceivedCollectable("NormalBarrel");
+			GameObject.Find("DonkeyKong").GetComponent<DonkeyKongController>().ReceivedCollectable(_type);
 			Destroy(this.gameObject);
 		}
 	}

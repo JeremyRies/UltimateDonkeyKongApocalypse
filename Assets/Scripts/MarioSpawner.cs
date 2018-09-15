@@ -44,7 +44,7 @@ public class MarioSpawner : MonoBehaviour
     
     IEnumerator NextWave()
     {
-        Debug.Log(string.Format("Wavetime: {0}",_waveSize/_spawnsPerSeconds));
+       // Debug.Log(string.Format("Wavetime: {0}",_waveSize/_spawnsPerSeconds));
         yield return new WaitForSeconds(_waveSize/_spawnsPerSeconds);
         RateChange();
         StartNewWave();

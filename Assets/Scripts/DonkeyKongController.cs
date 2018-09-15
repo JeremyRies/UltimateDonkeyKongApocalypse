@@ -1,5 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class DonkeyKongController : MonoBehaviour
@@ -13,19 +16,27 @@ public class DonkeyKongController : MonoBehaviour
     [SerializeField] private TopDownBarrel _normalBarrel;
     [SerializeField] private TopDownBarrel _bigBarrel;
 
-    private ArrayList _items;
+    private Dictionary<CollectableEnum, Sprite> _collectableIconsDictionary;    
+    private Dictionary<CollectableEnum, GameObject> _collectablePrefabDictionary;
+    private Queue<CollectableEnum> _items;
 
     private TopDownBarrel projectile;
 
     Animator DonkeyAnimator;
     private float _timeSinceLastShot;
+    private bool _collectableRunning;
 
     void Start()
     {
        DonkeyAnimator = GetComponent<Animator>();
         _timeSinceLastShot = _shotCooldown;
-        _items = new ArrayList();
-        projectile = _normalBarrel;
+        var types = Resources.LoadAll<CollectableObject>("CollectableTypes");
+ 
+        _collectableIconsDictionary = types.ToDictionary(x => x.Type, y => y.Icon);
+        _collectablePrefabDictionary = types.ToDictionary(x => x.Type, y => y.Prefab);
+
+        projectile = _collectablePrefabDictionary[CollectableEnum.Normal].GetComponent<TopDownBarrel>();
+        _items = new Queue<CollectableEnum>();
     }
 
     void Update ()
@@ -51,8 +62,12 @@ public class DonkeyKongController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.X))
         {
-            projectile = _bigBarrel;
-            StartCoroutine(CollectableTimer());
+            if (_items.Count!=0 && !_collectableRunning)
+            {
+                Debug.Log("get called");
+                projectile = _collectablePrefabDictionary[_items.Dequeue()].GetComponent<TopDownBarrel>();
+                StartCoroutine(CollectableTimer());
+            }
         }
         
         if (Input.GetKey(KeyCode.Space))
@@ -90,15 +105,21 @@ public class DonkeyKongController : MonoBehaviour
         gameObject.transform.position += Vector3.right * Time.deltaTime * _movementSpeed;
     }
 
-    public void ReceivedCollectable(string typeOfCollectable)
+    public void ReceivedCollectable(CollectableEnum typeOfCollectable)
     {
         Debug.Log("Collected Collectable :D");
-        _items.Add(CollectableEnum.Big);
+        _items.Enqueue(typeOfCollectable);
+        foreach( CollectableEnum item in _items )
+        {
+            Debug.Log( item );
+        }
     }
 
     IEnumerator CollectableTimer()
     {
+        _collectableRunning = true;
         yield return new WaitForSeconds(_collectableDuration);
-        projectile = _normalBarrel;
+        projectile = _collectablePrefabDictionary[CollectableEnum.Normal].GetComponent<TopDownBarrel>();
+        _collectableRunning = false;
     }
 }

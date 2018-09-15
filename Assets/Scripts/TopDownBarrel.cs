@@ -8,7 +8,7 @@ public class TopDownBarrel : MonoBehaviour
 
     public void Throw(float projectileSpeed)
     {
-        Debug.Log(string.Format("Firing TopDownBarrel with speed: {0}", projectileSpeed));
+        //Debug.Log(string.Format("Firing TopDownBarrel with speed: {0}", projectileSpeed));
         _rigidbody2D.velocity = Vector2.down * projectileSpeed;
         Destroy(gameObject, 10f);
     }
