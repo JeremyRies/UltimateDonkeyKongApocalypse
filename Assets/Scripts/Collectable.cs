@@ -11,9 +11,10 @@ public class Collectable : MonoBehaviour
 		StartCoroutine(Destroy());
 	}
 
-	public void SetType(CollectableEnum type)
+	public void SetType(CollectableEnum type, Sprite icon)
 	{
 		_type = type;
+		this.GetComponent<SpriteRenderer>().sprite = icon;
 	}
 	
 	private void OnTriggerEnter2D(Collider2D other)

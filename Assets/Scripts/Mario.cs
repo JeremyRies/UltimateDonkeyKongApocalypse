@@ -188,7 +188,7 @@ public class Mario : MonoBehaviour {
 
         if (collision.gameObject.tag == "Barrel")
         {
-            GameObject.Find("ScoreCanvas").GetComponent<ScoreManager>().AddPoint();
+            GameObject.Find("Score").GetComponent<ScoreManager>().AddPoint();
             MarioAnimator.SetBool("dead", true);
             StartCoroutine(Die());
         }

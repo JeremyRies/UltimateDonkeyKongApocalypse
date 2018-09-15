@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4506579403044724}
   - component: {fileID: 114957738996937116}
   - component: {fileID: 212316089804674430}
-  - component: {fileID: 95052067929737570}
+  - component: {fileID: 95453813150704214}
   m_Layer: 0
   m_Name: DonkeyKong
   m_TagString: Untagged
@@ -36,13 +36,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1963399318216352}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.35, z: 0}
+  m_LocalPosition: {x: 0, y: 5.26, z: 0}
   m_LocalScale: {x: 0.53361857, y: 0.53361857, z: 0.53361857}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &95052067929737570
+--- !u!95 &95453813150704214
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
@@ -74,7 +74,8 @@ MonoBehaviour:
   _projectileSpeed: 3
   _movementSpeed: 6.8
   _shotCooldown: 1
-  _barrelPrefab: {fileID: 114335352385167398, guid: 331cad2d0a2de8048b86f7f4657ce33f,
+  _collectableDuration: 5
+  _itemPrefab: {fileID: 1374115828042750, guid: 6a6a53746d89e7b46ba23a3c1afcf97a,
     type: 2}
 --- !u!212 &212316089804674430
 SpriteRenderer:
