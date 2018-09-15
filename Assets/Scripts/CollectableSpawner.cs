@@ -23,7 +23,7 @@ public class CollectableSpawner : MonoBehaviour
 		while (true)
 		{
 			GameObject collectable = Instantiate(_collectablePrefab);
-			collectable.transform.position = new Vector3(Random.Range(-7, 7), Random.Range(-3, 2), 0);
+			collectable.transform.position = new Vector3(Random.Range(-5, 5), Random.Range(-4, 2), 0);
 			yield return new WaitForSeconds(_spawnTime);
 		}
 	}

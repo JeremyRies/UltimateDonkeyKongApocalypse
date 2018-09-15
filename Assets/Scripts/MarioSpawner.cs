@@ -27,25 +27,9 @@ public class MarioSpawner : MonoBehaviour
         StartNewWave();
         while (true)
         {
-            int rand = Random.Range(0, 2);
-            GameObject randomSpawner = _spawnerLeft;
-            Vector2 movement = Vector2.left;
-
-            switch (rand)
-            {
-                case 0:
-                    randomSpawner = _spawnerLeft;
-                    movement = Vector2.left;
-                    break;
-
-                case 1:
-                    randomSpawner = _spawnerRight;
-                    movement = Vector2.right;
-                    break;
-            }
-            GameObject Mario = Instantiate(_spawnObject, randomSpawner.transform);
-            
-
+       
+            GameObject randomSpawner = (Random.Range(0,2)==0) ? _spawnerLeft : _spawnerRight;
+            Instantiate(_spawnObject, randomSpawner.transform);
             yield return new WaitForSeconds(_spawnTime);
         } 
     }
