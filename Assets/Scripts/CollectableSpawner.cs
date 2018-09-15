@@ -22,6 +22,10 @@ public class CollectableSpawner : MonoBehaviour
 		yield return new WaitForSeconds(_setupTime);
 		while (true)
 		{
+			/*while (isPaused)
+            {
+                yield return null;
+            }*/
 			GameObject collectable = Instantiate(_collectablePrefab);
 			collectable.transform.position = new Vector3(Random.Range(-5, 5), Random.Range(-4, 2), 0);
 			yield return new WaitForSeconds(_spawnTime);
