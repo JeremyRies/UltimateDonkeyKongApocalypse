@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Mario : MonoBehaviour {
 
@@ -107,6 +108,7 @@ public class Mario : MonoBehaviour {
 
         if (collision.gameObject.tag == "Barrel")
         {
+            GameObject.Find("ScoreCanvas").GetComponent<ScoreManager>().AddPoint(); 
             Destroy(this.gameObject);
         }
     }

@@ -13,7 +13,6 @@ public class MarioSpawner : MonoBehaviour
     [SerializeField] private GameObject _spawnerLeft;
     [SerializeField] private GameObject _spawnerRight;
     [SerializeField] private float _spawnTime;
-
     
 	void Start ()
 	{
@@ -27,7 +26,11 @@ public class MarioSpawner : MonoBehaviour
         StartNewWave();
         while (true)
         {
-       
+            /*while (isPaused)
+            {
+                yield return null;
+            }*/
+            
             GameObject randomSpawner = (Random.Range(0,2)==0) ? _spawnerLeft : _spawnerRight;
             Instantiate(_spawnObject, randomSpawner.transform);
             yield return new WaitForSeconds(_spawnTime);
