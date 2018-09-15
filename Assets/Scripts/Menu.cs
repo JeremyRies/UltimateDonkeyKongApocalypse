@@ -26,6 +26,8 @@ public class Menu : MonoBehaviour
             GoDownOnce();
         if (Input.GetKeyDown(KeyCode.Space))
             Confirm();
+        if (Input.GetKeyDown(KeyCode.Escape))
+            Resume();
     }
 
     private void GoUpOnce()
@@ -56,7 +58,7 @@ public class Menu : MonoBehaviour
     private void Resume()
     {
         StateController.IsPaused = false;
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     private void Volume()

@@ -1,13 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Reflection.Emit;
+﻿using System;
+using System.Collections;
+using UnityEngine;
 
 public static class StateController
 {
     public static bool IsPaused = false;
     public static int CurrentVolume = 13;
+    public static int CurrentScore = 0;
 
     public static ScoreEntry[] HighScore = 
     {
@@ -24,13 +23,28 @@ public static class StateController
     {
         for (var i = 0; i < HighScore.Length; i++)
         {
-            if (score > HighScore[i].Score)
-            {
-                for (var j = HighScore.Length - 1; j > i; j--)
-                    HighScore[j] = HighScore[j - 1];
-                HighScore[i] = new ScoreEntry(name.Substring(0, 4), score);
-                break;
-            }
+            if (score <= HighScore[i].Score) continue;
+            for (var j = HighScore.Length - 1; j > i; j--)
+                HighScore[j] = HighScore[j - 1];
+            HighScore[i] = new ScoreEntry(name.Substring(0, 4), score);
+            break;
         }
+    }
+
+    public static void Pause()
+    {
+        GameObject.Find("Canvas").transform.Find("MainMenu(Clone)").gameObject.SetActive(true);
+        IsPaused = true;
+    }
+
+    public static void GameOver()
+    {
+
+    }
+
+    public static void ArchiveHighScoreAs(string name)
+    {
+        AddHighScore(name, CurrentScore);
+        CurrentScore = 0;
     }
 }

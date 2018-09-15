@@ -1,14 +1,18 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class HighScore : MonoBehaviour
 {
     [SerializeField] private Text _namesText;
     [SerializeField] private Text _scoresText;
     [SerializeField] private Menu _mainMenuPrefab;
+
+    public bool IsEndOfGame = false;
 
     private void Start()
     {
@@ -39,7 +43,14 @@ public class HighScore : MonoBehaviour
 
     private void Back()
     {
-        Instantiate(_mainMenuPrefab, transform.parent);
-        Destroy(gameObject);
+        if (IsEndOfGame)
+        {
+            throw new NotImplementedException();
+        }
+        else
+        {
+            Instantiate(_mainMenuPrefab, transform.parent);
+            Destroy(gameObject);
+        }
     }
 }
