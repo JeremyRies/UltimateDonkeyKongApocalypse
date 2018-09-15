@@ -1,7 +1,13 @@
 fileFormatVersion: 2
 guid: 45a017e594784054bab9fcf35f1feb0f
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: lvlAssets_0
+    21300002: lvlAssets_1
+    21300004: lvlAssets_2
+    21300006: lvlAssets_3
+    21300008: lvlAssets_4
+    21300010: lvlAssets_5
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -104,7 +110,127 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: lvlAssets_0
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 187
+        width: 48
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7de89233b03b02a49b8b84ce4ac79046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lvlAssets_1
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 123
+        width: 208
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae0000988288b6344a83d6c3805c7987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lvlAssets_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 90
+        width: 195
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da04b4812ad3ebe4dbba564701b8f39f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lvlAssets_3
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 69
+        width: 208
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62cf15e46684a334bbdbbe30fe0564c8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lvlAssets_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 36
+        width: 195
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75b966143d666744cbee4533f207dbcc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lvlAssets_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3
+        width: 211
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78766198fbf7c0946bdb0782e367b0a2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d46a622b39464f0eb14e515ff2de669b, type: 3}
-  m_Name: Rolling
+  m_Name: Normal
   m_EditorClassIdentifier: 
-  _type: 3
+  _type: 4
   _typePrefab: {fileID: 0}
