@@ -26,7 +26,8 @@ public class Mario : MonoBehaviour {
 
     public void Rotate(Vector2 movement)
     {
-        transform.eulerAngles.y = transform.eulerAngles.y * -1;
+        var rotation = transform.eulerAngles;
+        rotation.y = transform.eulerAngles.y * -1;
     }
 
     public void RandomMove()
