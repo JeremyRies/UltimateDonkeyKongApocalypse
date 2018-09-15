@@ -1,21 +1,23 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Menu : MonoBehaviour
+public class VolumeMenu : MonoBehaviour
 {
     [SerializeField] private Text[] _options;
-    [SerializeField] private VolumeMenu _volumePrefab;
-    [SerializeField] private HighScore _highScorePrefab;
+    [SerializeField] private Menu _mainMenuPrefab;
     [SerializeField] private Text _focusArrows;
 
     private int _focused;
+    private const int MaxVolume = 20;
 
     private void Start()
     {
         UpdateFocusArrows();
+        UpdateVolumeBar();
     }
 
     private void Update()
@@ -26,6 +28,11 @@ public class Menu : MonoBehaviour
             GoDownOnce();
         if (Input.GetKeyDown(KeyCode.Space))
             Confirm();
+        if (_focused != 0) return;
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+            VolumeDown();
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+            VolumeUp();
     }
 
     private void GoUpOnce()
@@ -46,28 +53,26 @@ public class Menu : MonoBehaviour
     {
         switch (_focused)
         {
-            case (0): Resume(); break;
-            case (1): Volume(); break;
-            case (2): HighScore(); break;
-            case (3): Application.Quit(); break;
+            case (0): break;
+            case (1): Back(); break;
         }
     }
 
-    private void Resume()
+    private void VolumeDown()
     {
-        StateController.IsPaused = false;
-        Destroy(gameObject);
+        StateController.CurrentVolume = Mathf.Clamp(StateController.CurrentVolume - 1, 0, 20);
+        UpdateVolumeBar();
     }
 
-    private void Volume()
+    private void VolumeUp()
     {
-        Instantiate(_volumePrefab, transform.parent);
-        Destroy(gameObject);
+        StateController.CurrentVolume = Mathf.Clamp(StateController.CurrentVolume + 1, 0, 20);
+        UpdateVolumeBar();
     }
 
-    private void HighScore()
+    private void Back()
     {
-        Instantiate(_highScorePrefab, transform.parent);
+        Instantiate(_mainMenuPrefab, transform.parent);
         Destroy(gameObject);
     }
 
@@ -76,5 +81,14 @@ public class Menu : MonoBehaviour
         var position = _focusArrows.transform.position;
         position.y = _options[_focused].gameObject.transform.position.y;
         _focusArrows.transform.position = position;
+    }
+
+    private void UpdateVolumeBar()
+    {
+        var currentVolume = StateController.CurrentVolume;
+        var stringBuilder = new StringBuilder();
+        for (var i = 1; i <= MaxVolume; i++)
+            stringBuilder.Append(i <= currentVolume ? "|" : ".");
+        _options[0].text = stringBuilder.ToString();
     }
 }
