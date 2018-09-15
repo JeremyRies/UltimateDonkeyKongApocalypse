@@ -5,7 +5,9 @@ public class MarioSpawner : MonoBehaviour
 {
     [SerializeField] private float _setupTime;
     [SerializeField] private float _spawnsPerSeconds;
+    [SerializeField] private float _increaseAddendOfSpawns;
     [SerializeField] private float _waveSize;
+    [SerializeField] private float _increaseAddendOfWaveSize;
     [SerializeField] private GameObject _spawnObject;
     [SerializeField] private GameObject _spawner;
     [SerializeField] private float _spawnTime;
@@ -42,8 +44,8 @@ public class MarioSpawner : MonoBehaviour
 
     void RateChange()
     {
-        _spawnsPerSeconds +=2;
-        _waveSize += 10;
+        _spawnsPerSeconds += _increaseAddendOfSpawns;
+        _waveSize += _increaseAddendOfWaveSize;
         CalculateSpawnTime();
     }
 

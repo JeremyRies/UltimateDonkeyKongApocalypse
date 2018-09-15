@@ -169,8 +169,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _setupTime: 3
-  _spawnsPerSeconds: 1
+  _spawnsPerSeconds: 0.5
+  _increaseAddendOfSpawns: 2
   _waveSize: 10
+  _increaseAddendOfWaveSize: 15
   _spawnObject: {fileID: 1114028385874156, guid: c0b0d233c7999b74db987c97a24416f3,
     type: 2}
   _spawner: {fileID: 1533296701}
