@@ -6,12 +6,14 @@ public class Mario : MonoBehaviour {
 
     public float speed;
     public float boundarys;
+    Animator MarioAnimator;
     Rigidbody2D body;
     
 
 	// Use this for initialization
 	void Start () {
         body = gameObject.GetComponent<Rigidbody2D>();
+        MarioAnimator = GetComponent<Animator>();
         Move(Vector2.right);
     }
 	
@@ -36,7 +38,18 @@ public class Mario : MonoBehaviour {
     public void Move(Vector2 movement)
     {
         body.velocity = movement * speed;
+        if (movement == Vector2.right)
+        {
+            
+        }
+
+        if (movement == Vector2.left)
+        {
+           
+        }
         Rotate(movement);
+        
+        
     }
 
     public void Rotate(Vector2 movement)
@@ -44,10 +57,14 @@ public class Mario : MonoBehaviour {
 
 
         if (movement == Vector2.right)
-        { transform.rotation = Quaternion.Euler(0, 0, 0); }
+        { transform.rotation = Quaternion.Euler(0, 0, 0);
+            
+        }
 
         if (movement == Vector2.left)
-        { transform.rotation = Quaternion.Euler(0, 180, 0); }
+        { transform.rotation = Quaternion.Euler(0, 180, 0);
+            
+        }
 
 
     }
