@@ -22,11 +22,7 @@ GameObject:
   - component: {fileID: 114957738996937116}
   - component: {fileID: 212316089804674430}
 <<<<<<< HEAD
-<<<<<<< HEAD
   - component: {fileID: 95861183717948938}
-=======
-  - component: {fileID: 95645293733482820}
->>>>>>> 64b170f77deea892e9bbcbbd6d2ab88e170f879e
 =======
   - component: {fileID: 95645293733482820}
 >>>>>>> 64b170f77deea892e9bbcbbd6d2ab88e170f879e
@@ -51,11 +47,7 @@ Transform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< HEAD
-<<<<<<< HEAD
 --- !u!95 &95861183717948938
-=======
---- !u!95 &95645293733482820
->>>>>>> 64b170f77deea892e9bbcbbd6d2ab88e170f879e
 =======
 --- !u!95 &95645293733482820
 >>>>>>> 64b170f77deea892e9bbcbbd6d2ab88e170f879e
