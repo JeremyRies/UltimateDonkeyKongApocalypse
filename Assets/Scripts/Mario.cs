@@ -24,6 +24,12 @@ public class Mario : MonoBehaviour {
         body.velocity = movement * speed;
     }
 
+    public void Rotate(Vector2 movement)
+    {
+        var rotation = transform.eulerAngles;
+        rotation.y = transform.eulerAngles.y * -1;
+    }
+
     public void RandomMove()
     {
         int rand = Random.Range(0,2);
@@ -43,10 +49,10 @@ public class Mario : MonoBehaviour {
                 break;
         }
     }
-
+    
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag== "Ladder")
+        if (collision.gameObject.tag == "Ladder")
         {
             Move(Vector2.up);
         }

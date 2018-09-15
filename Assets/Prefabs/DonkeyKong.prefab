@@ -53,7 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _projectileSpeed: 1.85
-  _movementSpeed: 0.14
+  _movementSpeed: 6.8
   _shotCooldown: 3.22
   _barrelPrefab: {fileID: 114335352385167398, guid: 331cad2d0a2de8048b86f7f4657ce33f,
     type: 2}
