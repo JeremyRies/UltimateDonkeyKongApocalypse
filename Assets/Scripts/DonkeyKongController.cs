@@ -67,7 +67,7 @@ public class DonkeyKongController : MonoBehaviour
     private void Fire()
     {
         DonkeyAnimator.SetBool("shoot", true);
-        var barrelInstance = Instantiate(_barrelPrefab, transform.position, Quaternion.identity);
+        var barrelInstance = Instantiate(_barrelPrefab, new Vector2(transform.position.x, transform.position.y+0.5f), Quaternion.identity);
         barrelInstance.Throw(_projectileSpeed);
     }
 
