@@ -12,14 +12,14 @@ public class MarioSpawner : MonoBehaviour
     
 	void Start ()
 	{
-	   CalculateSpawnTime();
 	   StartCoroutine(Spawn());
-       StartNewWave();
     }
 
     IEnumerator Spawn()
     {
         yield return new WaitForSeconds(_setupTime);
+        CalculateSpawnTime();
+        StartNewWave();
         while (true)
         {
             Instantiate(_spawnObject, _spawner.transform);
@@ -34,7 +34,8 @@ public class MarioSpawner : MonoBehaviour
     
     IEnumerator NextWave()
     {
-        yield return new WaitForSeconds(10);
+        Debug.Log(string.Format("Wavetime: {0}",_waveSize/_spawnsPerSeconds));
+        yield return new WaitForSeconds(_waveSize/_spawnsPerSeconds);
         RateChange();
         StartNewWave();
     }
@@ -42,6 +43,7 @@ public class MarioSpawner : MonoBehaviour
     void RateChange()
     {
         _spawnsPerSeconds +=2;
+        _waveSize += 10;
         CalculateSpawnTime();
     }
 
