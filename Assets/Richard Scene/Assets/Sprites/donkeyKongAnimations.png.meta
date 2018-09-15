@@ -1,27 +1,27 @@
 fileFormatVersion: 2
-guid: bcc6106be16869447ad13941d9a2a3b6
+guid: 8432650cf96a0464c8dbb9dcd258f624
 TextureImporter:
   fileIDToRecycleName:
-    21300000: donkey kong_0
-    21300002: donkey kong_1
-    21300004: donkey kong_2
-    21300006: donkey kong_3
-    21300008: donkey kong_4
-    21300010: donkey kong_5
-    21300012: donkey kong_6
-    21300014: donkey kong_7
-    21300016: donkey kong_8
-    21300018: donkey kong_9
-    21300020: donkey kong_10
-    21300022: donkey kong_11
-    21300024: donkey kong_12
-    21300026: donkey kong_13
+    21300000: donkeyKongAnimations_0
+    21300002: donkeyKongAnimations_1
+    21300004: donkeyKongAnimations_2
+    21300006: donkeyKongAnimations_3
+    21300008: donkeyKongAnimations_4
+    21300010: donkeyKongAnimations_5
+    21300012: donkeyKongAnimations_6
+    21300014: donkeyKongAnimations_7
+    21300016: donkeyKongAnimations_8
+    21300018: donkeyKongAnimations_9
+    21300020: donkeyKongAnimations_10
+    21300022: donkeyKongAnimations_11
+    21300024: donkeyKongAnimations_12
+    21300026: donkeyKongAnimations_13
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
-    sRGBTexture: 0
+    sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
@@ -74,10 +74,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 2
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -85,10 +85,10 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Standalone
-    maxTextureSize: 2048
+    maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -96,10 +96,10 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Android
-    maxTextureSize: 2048
+    maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -107,10 +107,10 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: WebGL
-    maxTextureSize: 2048
+    maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -120,11 +120,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: donkey kong_0
+      name: donkeyKongAnimations_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 3
+        y: 1
         width: 40
         height: 32
       alignment: 0
@@ -134,17 +134,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5df6c613cb702d34c8bf7d039766529c
+      spriteID: 9897ad1855f7ae2449600cbeebea1529
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: donkey kong_1
+      name: donkeyKongAnimations_1
       rect:
         serializedVersion: 2
-        x: 48
-        y: 0
+        x: 51
+        y: 1
         width: 43
         height: 32
       alignment: 0
@@ -154,17 +154,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5078aa95dcf678e4783ec30a26446b43
+      spriteID: 2e4694e812c811c4b83cf1ff2f6f7640
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: donkey kong_2
+      name: donkeyKongAnimations_2
       rect:
         serializedVersion: 2
-        x: 99
-        y: 0
+        x: 102
+        y: 1
         width: 40
         height: 32
       alignment: 0
@@ -174,17 +174,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf7b722a210fcca45b39f4ae9bf75015
+      spriteID: 5f60b15c942895d43995e9cdcad260e4
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: donkey kong_3
+      name: donkeyKongAnimations_3
       rect:
         serializedVersion: 2
-        x: 147
-        y: 0
+        x: 150
+        y: 1
         width: 43
         height: 32
       alignment: 0
@@ -194,17 +194,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09f60977b3a03c646a057f0513d924ce
+      spriteID: 040b8461a280d214fb266fab6c7f5a42
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: donkey kong_4
+      name: donkeyKongAnimations_4
       rect:
         serializedVersion: 2
-        x: 198
-        y: 0
+        x: 201
+        y: 1
         width: 46
         height: 32
       alignment: 0
@@ -214,17 +214,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f44202b1550ad1a47af88a4011bb7406
+      spriteID: 1fec09902b06a034f9573e726612bf3c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: donkey kong_5
+      name: donkeyKongAnimations_5
       rect:
         serializedVersion: 2
-        x: 252
-        y: 0
+        x: 255
+        y: 1
         width: 46
         height: 32
       alignment: 0
@@ -234,17 +234,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2003e5a830cae634ab9f22ce618275f3
+      spriteID: 53156c4279fa75642b7dfa3fe9939dfa
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: donkey kong_6
+      name: donkeyKongAnimations_6
       rect:
         serializedVersion: 2
-        x: 306
-        y: 0
+        x: 309
+        y: 1
         width: 33
         height: 36
       alignment: 0
@@ -254,17 +254,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2533da612b67804684fc7c2e733ad59
+      spriteID: a74653890b30bcd48b0d79072fea4c3d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: donkey kong_7
+      name: donkeyKongAnimations_7
       rect:
         serializedVersion: 2
-        x: 347
-        y: 0
+        x: 350
+        y: 1
         width: 33
         height: 36
       alignment: 0
@@ -274,17 +274,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 573e8f31a451c4b43b59d4295a898ad9
+      spriteID: 9968cc625a40b5b4fb2a3acd00f7956a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: donkey kong_8
+      name: donkeyKongAnimations_8
       rect:
         serializedVersion: 2
-        x: 388
-        y: 0
+        x: 391
+        y: 1
         width: 38
         height: 36
       alignment: 0
@@ -294,17 +294,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46161c02003c172498b73a7a6af1ff67
+      spriteID: 2a3431104b5a357459ceb86bbe8de64e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: donkey kong_9
+      name: donkeyKongAnimations_9
       rect:
         serializedVersion: 2
-        x: 434
-        y: 0
+        x: 437
+        y: 1
         width: 43
         height: 32
       alignment: 0
@@ -314,17 +314,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 287fe05aa2197d347bf42ebc8ce7b5dc
+      spriteID: ebab8fd88e56b674f9b080d94567edee
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: donkey kong_10
+      name: donkeyKongAnimations_10
       rect:
         serializedVersion: 2
-        x: 485
-        y: 0
+        x: 488
+        y: 1
         width: 40
         height: 32
       alignment: 0
@@ -334,17 +334,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e969ba181f4e2f047b7364cc869828c4
+      spriteID: 47245cc49e8df764e86ad8e325a2f9ae
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: donkey kong_11
+      name: donkeyKongAnimations_11
       rect:
         serializedVersion: 2
-        x: 533
-        y: 0
+        x: 536
+        y: 1
         width: 40
         height: 32
       alignment: 0
@@ -354,17 +354,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f46ea883820910b4b89642cfa17ec6e1
+      spriteID: d8749ed8e7653364d8a986c3524f5224
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: donkey kong_12
+      name: donkeyKongAnimations_12
       rect:
         serializedVersion: 2
-        x: 581
-        y: 0
+        x: 584
+        y: 1
         width: 38
         height: 36
       alignment: 0
@@ -374,17 +374,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29ad1cf18354d4c44944dd0a7f40f7e5
+      spriteID: dc1923bb5eee8c040a6f46a30383ca45
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: donkey kong_13
+      name: donkeyKongAnimations_13
       rect:
         serializedVersion: 2
-        x: 627
-        y: 0
+        x: 630
+        y: 1
         width: 43
         height: 32
       alignment: 0
@@ -394,7 +394,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e761a4a3e3abbd49a81efd1d869b5b1
+      spriteID: d36cd6530a55d434cb91317a6d7ca737
       vertices: []
       indices: 
       edges: []
@@ -402,7 +402,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 022d74f703421bf4093f9a0889f896c1
+    spriteID: a08218ec7fa20984e8e76665b2793c56
     vertices: []
     indices: 
     edges: []
