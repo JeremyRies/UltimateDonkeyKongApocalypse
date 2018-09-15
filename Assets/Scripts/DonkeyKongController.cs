@@ -17,7 +17,7 @@ public class DonkeyKongController : MonoBehaviour
 
     [SerializeField] private GameObject _itemPrefab;
 
-    private Dictionary<CollectableEnum, Sprite> _collectableIconsDictionary;    
+    public Dictionary<CollectableEnum, Sprite> _collectableIconsDictionary;    
     private Dictionary<CollectableEnum, GameObject> _collectablePrefabDictionary;
     private Queue<CollectableEnum> _items;
 
