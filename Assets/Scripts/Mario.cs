@@ -7,7 +7,11 @@ public class Mario : MonoBehaviour {
 
     public float speed;
     public float boundarys;
+    public float jumpchance;
+    bool jumping;
+    bool climbing;
     Animator MarioAnimator;
+    Vector2 movement;
     Rigidbody2D body;
     
 
@@ -16,11 +20,59 @@ public class Mario : MonoBehaviour {
         body = gameObject.GetComponent<Rigidbody2D>();
         MarioAnimator = GetComponent<Animator>();
         Spawn();
+        StartCoroutine(JumpCheck());
     }
 	
 	// Update is called once per frame
 	void Update () {
         Boundary();
+    }
+
+    public IEnumerator JumpCheck()
+    {
+        while (true)
+        {
+            int rand = Random.Range(0, 100);
+
+            if (rand <= jumpchance && jumping == false && climbing == false)
+            {
+                StartCoroutine(Jump(0.5f,3));
+            }
+
+          yield return new WaitForSeconds(1);
+            
+        }
+    }
+
+    public IEnumerator Jump(float height, float jumpspeed)
+    {
+        jumping = true;
+        float jumppower = 1;
+        GetComponent<BoxCollider2D>().enabled = false;
+
+        while (jumppower > 0)
+        {
+            body.velocity = new Vector2(movement.x,jumppower) * jumpspeed;
+
+            yield return new WaitForSeconds(height/100);
+            jumppower = jumppower - 0.1f;
+
+        }
+
+        jumppower = -1;
+
+        while (jumppower < 0)
+        {
+            body.velocity = new Vector2(movement.x, jumppower) * jumpspeed;
+
+            yield return new WaitForSeconds(height/100);
+            jumppower = jumppower + 0.1f;
+
+        }
+        jumping = false;
+        Move(movement);
+        GetComponent<BoxCollider2D>().enabled = true;
+
     }
 
     public void Boundary()
@@ -76,7 +128,7 @@ public class Mario : MonoBehaviour {
 
         public void Move(Vector2 movement)
     {
-        Debug.Log(movement);
+        this.movement = movement;
         body.velocity = movement * speed;
         Rotate(movement);
         
@@ -130,6 +182,7 @@ public class Mario : MonoBehaviour {
         if (collision.gameObject.tag == "Ladder")
         {
             MarioAnimator.SetInteger("climb", 1);
+            climbing = true;
             Move(Vector2.up);
         }
 
@@ -145,6 +198,7 @@ public class Mario : MonoBehaviour {
         if (collision.gameObject.tag == "Ladder")
         {
             MarioAnimator.SetInteger("climb", 0);
+            climbing = false;
             RandomMove();
 
         }

@@ -146,6 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   boundarys: 6.5
+  jumpchance: 50
 --- !u!212 &212487707076564954
 SpriteRenderer:
   m_ObjectHideFlags: 1
