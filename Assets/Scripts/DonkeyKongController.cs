@@ -107,12 +107,7 @@ public class DonkeyKongController : MonoBehaviour
 
     public void ReceivedCollectable(CollectableEnum typeOfCollectable)
     {
-        Debug.Log("Collected Collectable :D");
         _items.Enqueue(typeOfCollectable);
-        foreach( CollectableEnum item in _items )
-        {
-            Debug.Log( item );
-        }
     }
 
     IEnumerator CollectableTimer()

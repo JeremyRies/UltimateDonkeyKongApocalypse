@@ -26,10 +26,10 @@ public class MarioSpawner : MonoBehaviour
         StartNewWave();
         while (true)
         {
-            /*while (isPaused)
+            while (StateController.IsPaused)
             {
                 yield return null;
-            }*/
+            }
             
             GameObject randomSpawner = (Random.Range(0,2)==0) ? _spawnerLeft : _spawnerRight;
             Instantiate(_spawnObject, randomSpawner.transform);

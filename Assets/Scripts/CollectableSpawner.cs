@@ -22,10 +22,10 @@ public class CollectableSpawner : MonoBehaviour
 		yield return new WaitForSeconds(_setupTime);
 		while (true)
 		{
-			/*while (isPaused)
+			while (StateController.IsPaused)
             {
                 yield return null;
-            }*/
+            }
 			GameObject collectable = Instantiate(_collectablePrefab);
 			collectable.GetComponent<Collectable>().SetType(RandomCollectable());
 			collectable.transform.position = new Vector3(Random.Range(-5, 5), Random.Range(-4, 2), 0);
