@@ -35,18 +35,23 @@ public class Mario : MonoBehaviour {
         }
     }
 
-    public void Move(Vector2 movement)
+    public void Spawn()
     {
-        body.velocity = movement * speed;
-        if (movement == Vector2.right)
+        if (transform.position.x > 0)
         {
-            
+            Move(Vector2.left);
         }
 
-        if (movement == Vector2.left)
+        if (transform.position.x < 0)
         {
-           
+            Move(Vector2.right);
         }
+
+    }
+
+        public void Move(Vector2 movement)
+    {
+        body.velocity = movement * speed;
         Rotate(movement);
         
         
@@ -56,12 +61,12 @@ public class Mario : MonoBehaviour {
     {
 
 
-        if (movement == Vector2.right)
+        if (movement == Vector2.left)
         { transform.rotation = Quaternion.Euler(0, 0, 0);
             
         }
 
-        if (movement == Vector2.left)
+        if (movement == Vector2.right)
         { transform.rotation = Quaternion.Euler(0, 180, 0);
             
         }
