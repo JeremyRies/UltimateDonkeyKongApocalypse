@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4506579403044724}
   - component: {fileID: 114957738996937116}
   - component: {fileID: 212316089804674430}
-  - component: {fileID: 95575373193431772}
+  - component: {fileID: 95783549682344074}
   m_Layer: 0
   m_Name: DonkeyKong
   m_TagString: Untagged
@@ -42,7 +42,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &95575373193431772
+--- !u!95 &95783549682344074
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
