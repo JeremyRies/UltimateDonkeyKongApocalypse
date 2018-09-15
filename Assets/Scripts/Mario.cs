@@ -1,12 +1,13 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Mario : MonoBehaviour {
 
     public float speed;
+    public float boundarys;
     Rigidbody2D body;
-    Vector2 movement;
+    
 
 	// Use this for initialization
 	void Start () {
@@ -16,18 +17,39 @@ public class Mario : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        
+        Boundary();
+    }
+
+    public void Boundary()
+    {
+        if( transform.position.x > boundarys)
+        {
+            Move(Vector2.left);
+        }
+
+        if (transform.position.x < -boundarys)
+        {
+            Move(Vector2.right);
+        }
     }
 
     public void Move(Vector2 movement)
     {
         body.velocity = movement * speed;
+        Rotate(movement);
     }
 
     public void Rotate(Vector2 movement)
     {
-        var rotation = transform.eulerAngles;
-        rotation.y = transform.eulerAngles.y * -1;
+
+
+        if (movement == Vector2.right)
+        { transform.rotation = Quaternion.Euler(0, 0, 0); }
+
+        if (movement == Vector2.left)
+        { transform.rotation = Quaternion.Euler(0, 180, 0); }
+
+
     }
 
     public void RandomMove()
@@ -38,16 +60,20 @@ public class Mario : MonoBehaviour {
         {
             case 0:
                 Move(Vector2.right);
+               
                 break;
 
             case 1:
                 Move(Vector2.left);
+                
                 break;
 
             default:
                 Move(Vector2.zero);
                 break;
         }
+
+        
     }
     
     public void OnTriggerEnter2D(Collider2D collision)
