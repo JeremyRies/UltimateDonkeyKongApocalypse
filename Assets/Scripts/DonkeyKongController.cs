@@ -36,14 +36,19 @@ public class DonkeyKongController : MonoBehaviour
             GoRight();
             DonkeyAnimator.SetBool("move", true);
         }
-        if (!Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.A))
+        if (!Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.A) )
         {
             DonkeyAnimator.SetBool("move", false);
+            
         }
-
-        if (Input.GetKeyDown(KeyCode.Space))
+        
+        if (Input.GetKey(KeyCode.Space))
         {
             TryFiring();
+        }
+        else
+        {
+            DonkeyAnimator.SetBool("shoot", false);
         }
     }
 
@@ -56,6 +61,7 @@ public class DonkeyKongController : MonoBehaviour
 
     private void Fire()
     {
+        DonkeyAnimator.SetBool("shoot", true);
         var barrelInstance = Instantiate(_barrelPrefab, transform.position, Quaternion.identity);
         barrelInstance.Throw(_projectileSpeed);
     }
