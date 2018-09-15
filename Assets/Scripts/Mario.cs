@@ -82,6 +82,11 @@ public class Mario : MonoBehaviour {
         {
             Move(Vector2.up);
         }
+
+        if (collision.gameObject.tag == "Barrel")
+        {
+            Destroy(this.gameObject);
+        }
     }
     public void OnTriggerExit2D(Collider2D collision)
     {
