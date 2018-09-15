@@ -97,12 +97,14 @@ public class Mario : MonoBehaviour {
         }
 
         
+        
     }
     
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Ladder")
         {
+            MarioAnimator.SetInteger("climb", 1);
             Move(Vector2.up);
         }
 
@@ -116,6 +118,7 @@ public class Mario : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Ladder")
         {
+            MarioAnimator.SetInteger("climb", 0);
             RandomMove();
 
         }
