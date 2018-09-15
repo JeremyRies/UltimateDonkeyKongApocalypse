@@ -10,6 +10,9 @@ public class DonkeyKongController : MonoBehaviour
     [Space(10)]
 
     [SerializeField] private TopDownBarrel _barrelPrefab;
+    //[SerializeField] private RollingBarrel _rollingBarrelPrefab;
+
+    private string activeBarrel;
 
     Animator DonkeyAnimator;
     private float _timeSinceLastShot;
@@ -18,6 +21,8 @@ public class DonkeyKongController : MonoBehaviour
     {
        DonkeyAnimator = GetComponent<Animator>();
         _timeSinceLastShot = _shotCooldown;
+
+        activeBarrel = "NormalBarrel";
     }
 
     void Update ()
@@ -77,8 +82,9 @@ public class DonkeyKongController : MonoBehaviour
         gameObject.transform.position += Vector3.right * Time.deltaTime * _movementSpeed;
     }
 
-    public void ReceivedCollectable()
+    public void ReceivedCollectable(string typeOfCollectable)
     {
         Debug.Log("Collected Collectable :D");
+        activeBarrel = typeOfCollectable;
     }
 }
