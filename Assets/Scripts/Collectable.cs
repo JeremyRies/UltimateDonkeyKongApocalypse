@@ -14,7 +14,7 @@ public class Collectable : MonoBehaviour {
 		//give status update to DonkeyKong
 		if (other.gameObject.tag == "Barrel")
 		{
-			GameObject.Find("DonkeyKong").GetComponent<DonkeyKongController>().ReceivedCollectable();
+			GameObject.Find("DonkeyKong").GetComponent<DonkeyKongController>().ReceivedCollectable("NormalBarrel");
 			Destroy(this.gameObject);
 		}
 	}
