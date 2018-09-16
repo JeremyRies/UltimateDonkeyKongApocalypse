@@ -6,11 +6,14 @@ using UnityEngine.SceneManagement;
 public class StartManager : MonoBehaviour {
 
 	// Use this for initialization
-	void Start ()
+	void Update ()
 	{
-		StateController.IsPaused = false;
-		StateController.GameIsOver = false;
-		SceneManager.LoadScene(1);
+        if (Input.GetKey(KeyCode.Space))
+        {
+            StateController.IsPaused = false;
+            StateController.GameIsOver = false;
+            SceneManager.LoadScene(1);
+        }
 	}
 
 }
