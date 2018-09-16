@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Sound;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -177,6 +178,8 @@ public class Mario : MonoBehaviour {
     private void Die()
     {
         if (_isDead) return;
+        SoundEffectService.Instance.PlayClip(ClipIdentifier.Death);
+        
         GameObject.Find("Score").GetComponent<ScoreManager>().AddPoint();
         _marioAnimator.SetBool("dead", true);
         StartCoroutine(Dying());

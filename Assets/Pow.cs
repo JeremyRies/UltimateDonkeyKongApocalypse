@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Sound;
 using UnityEngine;
 
 public class Pow : MonoBehaviour {
@@ -21,6 +22,7 @@ public class Pow : MonoBehaviour {
 
     public IEnumerator POW()
     {
+	    SoundEffectService.Instance.PlayClip(ClipIdentifier.Pow);
         int state = 0;
         while (state==0)
         {
