@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Pow
   m_EditorClassIdentifier: 
   Type: 0
-  Icon: {fileID: 21300000, guid: a24aab4d14ff9c74791f88076925e051, type: 2}
+  Icon: {fileID: 21300000, guid: 35c9ee9ef36fa1044a5332f9bc1489fd, type: 3}
   Prefab: {fileID: 1723935745399668, guid: 54a27af0988323b499de4fef50774251, type: 2}
   Amount: 0
   ProjectileType: 0

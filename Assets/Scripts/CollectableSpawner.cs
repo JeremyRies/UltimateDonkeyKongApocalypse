@@ -44,7 +44,8 @@ public class CollectableSpawner : MonoBehaviour
 			CollectableEnum.Big, CollectableEnum.Luigi, CollectableEnum.Pow
 		};
 		
-		return collectables[Random.Range(0,3)];
+		//return collectables[Random.Range(0,3)];
+		return CollectableEnum.Pow;
 	}
 	
 }

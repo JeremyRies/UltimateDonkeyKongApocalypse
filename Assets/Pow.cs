@@ -24,18 +24,20 @@ public class Pow : MonoBehaviour {
         int state = 0;
         while (state==0)
         {
+	        GameObject.Find("MainCamera").GetComponent<CameraShake>().enabled = true;
             yield return new WaitForSeconds(1);
             state = 1;
         }
 
         Powbody.enabled = true;
-
         
         while (state == 1)
         {
             yield return new WaitForSeconds(1);
-            state = 2;
-	        GameObject.Find("DonkeyKong").GetComponent<DonkeyKongController>()._collectableRunning = true;
+	        state = 2;
+	        GameObject.Find("DonkeyKong").GetComponent<DonkeyKongController>()._collectableRunning = false;
+	        GameObject.Find("MainCamera").GetComponent<CameraShake>().Reset();
+	        GameObject.Find("MainCamera").GetComponent<CameraShake>().enabled = false;
             Destroy(gameObject);
         }
 
