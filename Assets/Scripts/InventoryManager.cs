@@ -32,15 +32,7 @@ public class InventoryManager : MonoBehaviour
 	{
 		if (Instance == null)
 			Instance = this;
-
-		else if (Instance != this)
-			Destroy(gameObject);
-
-		DontDestroyOnLoad(gameObject);
-	}
-
-	void Start()
-	{
+		
 		activeSpecial = 0;
 		
 		var types = Resources.LoadAll<CollectableObject>("CollectableTypes");
@@ -65,6 +57,11 @@ public class InventoryManager : MonoBehaviour
 			{1, CollectableEnum.Daisy},
 			{3, CollectableEnum.Pow}
 		};
+	}
+
+	void Start()
+	{
+		
 	}
 	
 	void Update()
