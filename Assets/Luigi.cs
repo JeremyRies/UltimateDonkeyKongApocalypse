@@ -134,54 +134,8 @@ public class Luigi : MonoBehaviour {
     {
         this.movement = movement;
         body.velocity = movement * speed;
-        Rotate(movement);
 
 
     }
-
-    public void Rotate(Vector2 movement)
-    {
-
-
-        if (movement == Vector2.left)
-        {
-            transform.rotation = Quaternion.Euler(0, 0, 0);
-
-        }
-
-        if (movement == Vector2.right)
-        {
-            transform.rotation = Quaternion.Euler(0, 180, 0);
-
-        }
-
-
-    }
-
-    public void RandomMove()
-    {
-        int rand = Random.Range(0, 2);
-
-        switch (rand)
-        {
-            case 0:
-                Move(Vector2.right);
-
-                break;
-
-            case 1:
-                Move(Vector2.left);
-
-                break;
-
-            default:
-                Move(Vector2.zero);
-                break;
-        }
-
-
-
-    }
-
     
 }
