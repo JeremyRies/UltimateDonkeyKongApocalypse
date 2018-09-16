@@ -10,13 +10,13 @@ using Image = UnityEngine.UI.Image;
 
 public class DonkeyKongController : MonoBehaviour
 {
-    [SerializeField] private float _projectileSpeed;
+    [SerializeField] public float _projectileSpeed;
     [SerializeField] private float _movementSpeed;
     [SerializeField] private float _shotCooldown;
     [SerializeField] private float _collectableDuration;
     [Space(10)]
 
-    private TopDownBarrel projectile;
+    private GameObject projectile;
 
 
     Animator DonkeyAnimator;
@@ -27,7 +27,7 @@ public class DonkeyKongController : MonoBehaviour
     {
        DonkeyAnimator = GetComponent<Animator>();
         _timeSinceLastShot = _shotCooldown;
-        projectile = InventoryManager.Instance._collectablePrefabDictionary[CollectableEnum.Normal].GetComponent<TopDownBarrel>();
+        projectile = InventoryManager.Instance._collectablePrefabDictionary[CollectableEnum.Normal];
     }
 
     void Update ()
@@ -55,7 +55,7 @@ public class DonkeyKongController : MonoBehaviour
         {
             if (InventoryManager.Instance.GetActiveSpecialAmount()!=0 && !_collectableRunning)
             {
-                projectile = InventoryManager.Instance.GetActiveSpecial().GetComponent<TopDownBarrel>();
+                projectile = InventoryManager.Instance.GetActiveSpecial();
                 InventoryManager.Instance.RemoveCollectableFromActive();
                 StartCoroutine(CollectableTimer());
             }
@@ -86,7 +86,6 @@ public class DonkeyKongController : MonoBehaviour
     {
         DonkeyAnimator.SetBool("shoot", true);
         var barrelInstance = Instantiate(projectile, new Vector2(transform.position.x, transform.position.y+0.5f), Quaternion.identity);
-        barrelInstance.Throw(_projectileSpeed);
     }
 
     private void GoLeft()
@@ -109,7 +108,7 @@ public class DonkeyKongController : MonoBehaviour
     {
         _collectableRunning = true;
         yield return new WaitForSeconds(_collectableDuration);
-        projectile = InventoryManager.Instance._collectablePrefabDictionary[CollectableEnum.Normal].GetComponent<TopDownBarrel>();
+        projectile = InventoryManager.Instance._collectablePrefabDictionary[CollectableEnum.Normal];
         _collectableRunning = false;
     }
 }

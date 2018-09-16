@@ -37,8 +37,7 @@ public class CollectableSpawner : MonoBehaviour
 
 	private CollectableEnum RandomCollectable()
 	{
-		// return some random enumtype;
-		return CollectableEnum.Big;
+		return CollectableEnum.Luigi;
 	}
 	
 }

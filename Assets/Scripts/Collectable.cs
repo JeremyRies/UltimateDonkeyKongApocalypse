@@ -19,7 +19,6 @@ public class Collectable : MonoBehaviour
 	
 	private void OnTriggerEnter2D(Collider2D other)
 	{
-		//give status update to DonkeyKong
 		if (other.gameObject.tag == "Barrel")
 		{
 			GameObject.Find("DonkeyKong").GetComponent<DonkeyKongController>().ReceivedCollectable(_type);

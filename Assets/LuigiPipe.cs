@@ -16,7 +16,7 @@ public class LuigiPipe : MonoBehaviour {
 		
 	}
 
-    public void RandomMove()
+    /*public void RandomMove()
     {
         int rand = Random.Range(0, 5);
 
@@ -51,7 +51,7 @@ public class LuigiPipe : MonoBehaviour {
                 Move(Vector2.zero);
                 break;
         }
-    }
+    }*/
 
     public IEnumerator Die()
     {

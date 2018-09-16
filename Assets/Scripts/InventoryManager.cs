@@ -8,16 +8,12 @@ public class InventoryManager : MonoBehaviour
 {
 
 	[SerializeField] private Text _bigAmountText;
-	[SerializeField] private int _bigAmount;
 	[SerializeField] private GameObject _bigArrow;
 	[SerializeField] private Text _luigiAmountText;
-	[SerializeField] private int _luigiAmount;
 	[SerializeField] private GameObject _luigiArrow;
 	[SerializeField] private Text _rollingAmountText;
-	[SerializeField] private int _rollingAmount;
 	[SerializeField] private GameObject _rollingArrow;
 	[SerializeField] private Text _powAmountText;
-	[SerializeField] private int _powAmount;
 	[SerializeField] private GameObject _powArrow;
 	
 	public Dictionary<CollectableEnum, Sprite> _collectableIconsDictionary;    
@@ -45,10 +41,6 @@ public class InventoryManager : MonoBehaviour
 	void Start()
 	{
 		activeSpecial = 0;
-		_bigAmount = 0;
-		_luigiAmount = 0;
-		_rollingAmount = 0;
-		_powAmount = 0;
 		
 		var types = Resources.LoadAll<CollectableObject>("CollectableTypes");
 		
