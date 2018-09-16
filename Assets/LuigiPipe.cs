@@ -10,7 +10,6 @@ public class LuigiPipe : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	    GameObject.Find("DonkeyKong").GetComponent<DonkeyKongController>()._collectableRunning = true;
         StartCoroutine(Die());
         RandomMove();
         SoundEffectService.Instance.PlayClip(ClipIdentifier.Luigi);
@@ -85,6 +84,5 @@ public class LuigiPipe : MonoBehaviour {
         }
 
         Destroy(gameObject);
-        GameObject.Find("DonkeyKong").GetComponent<DonkeyKongController>()._collectableRunning = false;
     }
 }
