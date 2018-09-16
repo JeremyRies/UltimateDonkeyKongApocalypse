@@ -24,7 +24,7 @@ namespace Sound
             _indexOfLastPlayedClip = new Dictionary<ClipIdentifier, int>();
 
             _indexOfLastPlayedClip = InitializeDictionary();
-            DontDestroyOnLoad(this.gameObject);
+           
         }
 
         public void PlayClip(ClipIdentifier clipIdentifier)

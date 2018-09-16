@@ -17,7 +17,7 @@ namespace Sound
         {
             _instance = this;
 
-            DontDestroyOnLoad(this.gameObject);
+         
             _source.clip = _menuMusic;
             _source.Play(1);
             
