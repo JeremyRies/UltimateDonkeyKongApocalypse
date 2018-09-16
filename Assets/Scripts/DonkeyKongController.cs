@@ -32,6 +32,8 @@ public class DonkeyKongController : MonoBehaviour
 
     void Update ()
     {
+        if (StateController.IsPaused) return;
+
         if (_timeSinceLastShot < _shotCooldown)
         { 
                 _timeSinceLastShot += Time.deltaTime;
