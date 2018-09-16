@@ -16,7 +16,6 @@ public class HighScore : MonoBehaviour
 
     private void Start()
     {
-        StateController.AddHighScore(Random.Range(0, 9999999).ToString(), Random.Range(0, 9999999)); //Delete This
         var highScore = StateController.HighScore;
         var nameStringBuilder = new StringBuilder();
         var scoreStringBuilder = new StringBuilder();
