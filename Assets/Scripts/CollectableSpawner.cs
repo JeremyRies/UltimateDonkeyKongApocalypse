@@ -29,7 +29,7 @@ public class CollectableSpawner : MonoBehaviour
 			
 			GameObject collectable = Instantiate(_collectablePrefab);
 			CollectableEnum type = RandomCollectable();
-			collectable.GetComponent<Collectable>().SetType(type,GameObject.Find("DonkeyKong").GetComponent<DonkeyKongController>()._collectableIconsDictionary[type]);
+			collectable.GetComponent<Collectable>().SetType(type,InventoryManager.Instance._collectableIconsDictionary[type]);
 			collectable.transform.position = new Vector3(Random.Range(-5, 5), Random.Range(-4, 2), 0);
 			yield return new WaitForSeconds(_spawnTime);
 		}
