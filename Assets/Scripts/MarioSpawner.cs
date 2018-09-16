@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.ComponentModel.Design.Serialization;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class MarioSpawner : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class MarioSpawner : MonoBehaviour
     [SerializeField] private GameObject _spawnerLeft;
     [SerializeField] private GameObject _spawnerRight;
     [SerializeField] private float _spawnTime;
+
+    public List<GameObject> MarioList;
+    public bool pow =false;
     
 	void Start ()
 	{

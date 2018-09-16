@@ -11,7 +11,7 @@ public class Mario : MonoBehaviour {
     bool jumping;
     bool climbing;
     bool dead = false;
-    Animator MarioAnimator;
+    public Animator MarioAnimator;
     Vector2 movement;
     Rigidbody2D body;
     
@@ -29,6 +29,7 @@ public class Mario : MonoBehaviour {
         Boundary();
     }
 
+    
     public IEnumerator JumpCheck()
     {
         while (true)
@@ -187,7 +188,7 @@ public class Mario : MonoBehaviour {
             Move(Vector2.up);
         }
 
-        if (collision.gameObject.tag == "Barrel" || collision.gameObject.tag == "Luigi" )
+        if (collision.gameObject.tag == "Barrel" || collision.gameObject.tag == "Luigi" || collision.gameObject.tag == "Pow")
         {
             if (dead == false)
             {

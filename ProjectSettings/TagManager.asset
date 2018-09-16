@@ -9,6 +9,7 @@ TagManager:
   - Floor
   - Pauli
   - Luigi
+  - Pow
   layers:
   - Default
   - TransparentFX

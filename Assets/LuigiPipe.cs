@@ -19,7 +19,7 @@ public class LuigiPipe : MonoBehaviour {
 		
 	}
 
-    /*public void RandomMove()
+    public void RandomMove()
     {
         int rand = Random.Range(0, 5);
 
@@ -54,7 +54,7 @@ public class LuigiPipe : MonoBehaviour {
                 transform.position = new Vector2(6.51998f, -2.33f);
                 break;
         }
-    }*/
+    }
 
     public IEnumerator Die()
     {

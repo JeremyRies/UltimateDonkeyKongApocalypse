@@ -106,30 +106,7 @@ public class Luigi : MonoBehaviour {
 
     }
 
-    public IEnumerator Die()
-    {
-        int state = 0;
-        dead = true;
-        GetComponent<BoxCollider2D>().enabled = false;
-
-        while (state == 0)
-        {
-            speed = 1;
-            Move(Vector2.up);
-            yield return new WaitForSeconds(0.5f);
-            state = 1;
-        }
-
-        while (state == 1)
-        {
-            speed = 7;
-            Move(Vector2.down);
-            yield return new WaitForSeconds(2);
-            state = 2;
-        }
-
-        Destroy(gameObject);
-    }
+    
 
     public void Spawn()
     {

@@ -171,6 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 0
+  LuigiSpawner: {fileID: 114899273282282304}
 --- !u!114 &114899273282282304
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -192,6 +193,7 @@ MonoBehaviour:
   _spawnerLeft: {fileID: 1905078202949518}
   _spawnerRight: {fileID: 1997577588374180}
   _spawnTime: 0
+  MarioList: []
 --- !u!212 &212064373322843912
 SpriteRenderer:
   m_ObjectHideFlags: 1
