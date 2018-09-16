@@ -38,8 +38,8 @@ public class Mario : MonoBehaviour {
 	    else
 	    {
             Move(_movementDirection);
-            if (_shouldWalkTowardsDaisy)
-                WalkTowardsDaisy(_latestDaisyTransform);
+            if (_shouldWalkTowardsDaisy && !_isClimbing && !_isJumping)
+                WalkTowardsDaisy();
 	        Boundary();
         }
     }
@@ -164,7 +164,7 @@ public class Mario : MonoBehaviour {
             case ("Pow"): Die(); break;
             case ("Pauli"): StateController.GameOver(); break;
             case ("Boundary"): WalkAwayFromBoundary(collision.transform); break;
-            case ("Daisy"): WalkTowardsDaisy(collision.transform); break;
+            case ("Daisy"): StartWalkingTowardsDaisy(collision.transform); break;
         }
     }
 
@@ -214,18 +214,17 @@ public class Mario : MonoBehaviour {
         Move(differenceX < 0 ? Vector2.left : Vector2.right);
     }
 
-    private void WalkTowardsDaisy(Transform daisyTransform)
+    private void StartWalkingTowardsDaisy(Transform daisyTransform)
     {
         if (_isDead) return;
         _shouldWalkTowardsDaisy = true;
-        if (_isClimbing || _isJumping)
-            _latestDaisyTransform = daisyTransform;
-        else
-        {
-            _shouldWalkTowardsDaisy = false;
-            var differenceX = transform.position.x - daisyTransform.position.x;
-            Move(differenceX < 0 ? Vector2.right : Vector2.left);
-        }
+        _latestDaisyTransform = daisyTransform;
+    }
+
+    private void WalkTowardsDaisy()
+    {
+        var differenceX = transform.position.x - _latestDaisyTransform.position.x;
+        Move(differenceX < 0 ? Vector2.right : Vector2.left);
     }
 
     public void EndOfJumpingOrClimbing()
@@ -233,7 +232,7 @@ public class Mario : MonoBehaviour {
         if (!_shouldWalkTowardsDaisy) return;
         _shouldWalkTowardsDaisy = false;
         if (!_latestDaisyTransform) return;
-        WalkTowardsDaisy(_latestDaisyTransform);
+        StartWalkingTowardsDaisy(_latestDaisyTransform);
     }
     
     public void OnTriggerExit2D(Collider2D collision)
