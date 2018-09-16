@@ -38,6 +38,8 @@ public class Mario : MonoBehaviour {
 	    else
 	    {
             Move(_movementDirection);
+            if (_shouldWalkTowardsDaisy)
+                WalkTowardsDaisy(_latestDaisyTransform);
 	        Boundary();
         }
     }
