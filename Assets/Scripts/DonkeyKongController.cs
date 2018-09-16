@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Experimental.UIElements;
+using UnityEngine.UI;
 using Image = UnityEngine.UI.Image;
 
 public class DonkeyKongController : MonoBehaviour
@@ -63,12 +64,13 @@ public class DonkeyKongController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.X))
         {
+            /* OLD BEHAVIOUR
             if (_items.Count!=0 && !_collectableRunning)
             {
                 projectile = _collectablePrefabDictionary[_items.Dequeue()].GetComponent<TopDownBarrel>();
                 Destroy(GameObject.Find("Items").transform.GetChild(0).gameObject);
                 StartCoroutine(CollectableTimer());
-            }
+            }*/
         }
 
         if (Input.GetKeyDown(KeyCode.Escape) && !StateController.IsPaused)
@@ -111,9 +113,11 @@ public class DonkeyKongController : MonoBehaviour
 
     public void ReceivedCollectable(CollectableEnum typeOfCollectable)
     {
-        _items.Enqueue(typeOfCollectable);
-        var item = Instantiate(_itemPrefab, GameObject.Find("Items").transform);
-        item.GetComponent<Image>().sprite = _collectableIconsDictionary[typeOfCollectable];
+        GameObject.Find("Inventory").GetComponent<InventoryManager>().AddCollectable(typeOfCollectable);
+        /* OLD BEHAVIOUR
+         _items.Enqueue(typeOfCollectable);
+         var item = Instantiate(_itemPrefab, GameObject.Find("Items").transform);
+         item.GetComponent<Image>().sprite = _collectableIconsDictionary[typeOfCollectable];*/
     }
 
     IEnumerator CollectableTimer()
