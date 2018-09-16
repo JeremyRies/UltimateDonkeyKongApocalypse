@@ -5,56 +5,71 @@ using UnityEngine.UI;
 
 public class Mario : MonoBehaviour {
 
-    public float speed;
-    public float boundarys;
-    public float jumpchance;
-    bool jumping;
-    bool climbing;
-    bool dead = false;
-    public Animator MarioAnimator;
-    Vector2 movement;
-    Rigidbody2D body;
-    
+    [SerializeField] private float _speed;
+    [SerializeField] private float _boundaries;
+    [SerializeField] private float _jumpChance;
 
-	// Use this for initialization
-	void Start () {
-        body = gameObject.GetComponent<Rigidbody2D>();
-        MarioAnimator = GetComponent<Animator>();
-        Spawn();
+    [Space(10)]
+    [SerializeField] private Animator _marioAnimator;
+    [SerializeField] private Rigidbody2D _body;
+    [SerializeField] private BoxCollider2D _hitBox;
+
+    private bool _isJumping;
+    private bool _isClimbing;
+    private bool _isDead = false;
+    private bool _shouldWalkTowardsDaisy;
+    private Transform _latestDaisyTransform;
+    private Vector2 _movementDirection;
+    
+	private void Start ()
+	{
+        _body = gameObject.GetComponent<Rigidbody2D>();
+        _marioAnimator = GetComponent<Animator>();
+        StartWalking();
         StartCoroutine(JumpCheck());
     }
 	
-	// Update is called once per frame
-	void Update () {
-	    Boundary();
+	private void Update ()
+	{
+	    if (StateController.IsPaused)
+	    {
+	        Move(Vector2.zero);
+	    }
+	    else
+	    {
+	        Boundary();
+        }
     }
 
-    
     public IEnumerator JumpCheck()
     {
         while (true)
         {
-            int rand = Random.Range(0, 100);
-
-            if (rand <= jumpchance && jumping == false && climbing == false && dead == false)
+            if (Random.Range(1, 101) <= _jumpChance && 
+                !_isJumping && 
+                !_isClimbing && 
+                !_isDead)
             {
                 StartCoroutine(Jump(0.5f,3));
             }
-
-          yield return new WaitForSeconds(1);
-            
+            yield return new WaitForSeconds(1);
         }
+    }
+
+    private void Jump()
+    {
+
     }
 
     public IEnumerator Jump(float height, float jumpspeed)
     {
-        jumping = true;
+        _isJumping = true;
         float jumppower = 1;
         GetComponent<BoxCollider2D>().enabled = false;
 
         while (jumppower > 0)
         {
-            body.velocity = new Vector2(movement.x,jumppower) * jumpspeed;
+            _body.velocity = new Vector2(_movementDirection.x,jumppower) * jumpspeed;
 
             yield return new WaitForSeconds(height/100);
             jumppower = jumppower - 0.1f;
@@ -65,40 +80,111 @@ public class Mario : MonoBehaviour {
 
         while (jumppower < 0)
         {
-            body.velocity = new Vector2(movement.x, jumppower) * jumpspeed;
+            _body.velocity = new Vector2(_movementDirection.x, jumppower) * jumpspeed;
 
             yield return new WaitForSeconds(height/100);
             jumppower = jumppower + 0.1f;
 
         }
-        jumping = false;
-        Move(movement);
+        _isJumping = false;
+        Move(_movementDirection);
         GetComponent<BoxCollider2D>().enabled = true;
-
+        EndOfJumpingOrClimbing();
     }
 
-    public void Boundary()
+    private void Boundary()
     {
-        if( transform.position.x > boundarys)
-        {
+        if( transform.position.x > _boundaries)
             Move(Vector2.left);
-        }
 
-        if (transform.position.x < -boundarys)
-        {
+        if (transform.position.x < -_boundaries)
             Move(Vector2.right);
+    }
+
+
+    public void StartWalking()
+    {
+        if (transform.position.x > 0)
+            Move(Vector2.left);
+
+        if (transform.position.x < 0)
+            Move(Vector2.right);
+    }
+
+    public void Move(Vector2 movement)
+    {
+        if (StateController.IsPaused)
+            movement = Vector2.zero;
+        _movementDirection = movement;
+        _body.velocity = movement * _speed;
+        ChooseDirection(movement);
+    }
+
+    public void ChooseDirection(Vector2 movement)
+    {
+        if (movement == Vector2.left)
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+
+        if (movement == Vector2.right)
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+    }
+
+    public void RandomMove()
+    {
+        switch (Random.Range(0, 2))
+        {
+            case 0:
+                Move(Vector2.right);
+                break;
+
+            case 1:
+                Move(Vector2.left);
+                break;
+
+            default:
+                Move(Vector2.zero);
+                break;
+        }
+    }
+    
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        switch (collision.gameObject.tag)
+        {
+            case ("Ladder"): WalkUp();  break; 
+            case ("Barrel"): Die(); break; 
+            case ("Luigi"): Die(); break;
+            case ("Pow"): Die(); break;
+            case ("Pauli"): StateController.GameOver(); break;
+            case ("Boundary"): WalkAwayFromBoundary(collision.transform); break;
+            case ("Daisy"): WalkTowardsDaisy(collision.transform); break;
         }
     }
 
-    public IEnumerator Die()
+    private void WalkUp()
+    {
+        _marioAnimator.SetInteger("climb", 1);
+        _isClimbing = true;
+        Move(Vector2.up);
+    }
+
+    private void Die()
+    {
+        if (_isDead) return;
+        GameObject.Find("Score").GetComponent<ScoreManager>().AddPoint();
+        _marioAnimator.SetBool("dead", true);
+        StartCoroutine(Dying());
+    }
+
+    public IEnumerator Dying()
     {
         int state = 0;
-        dead = true;
+        _isDead = true;
         GetComponent<BoxCollider2D>().enabled = false;
 
-        while(state ==0)
+        while (state == 0)
         {
-            speed = 1;
+            _speed = 1;
             Move(Vector2.up);
             yield return new WaitForSeconds(0.5f);
             state = 1;
@@ -106,7 +192,7 @@ public class Mario : MonoBehaviour {
 
         while (state == 1)
         {
-            speed = 7;
+            _speed = 7;
             Move(Vector2.down);
             yield return new WaitForSeconds(2);
             state = 2;
@@ -115,105 +201,40 @@ public class Mario : MonoBehaviour {
         Destroy(gameObject);
     }
 
-        public void Spawn()
+    public void WalkAwayFromBoundary(Transform boundaryTransform)
     {
-        if (transform.position.x > 0)
-        {
-            Move(Vector2.left);
-        }
-
-        if (transform.position.x < 0)
-        {
-            Move(Vector2.right);
-        }
-
+        var differenceX = transform.position.x - boundaryTransform.position.x;
+        Move(differenceX < 0 ? Vector2.left : Vector2.right);
     }
 
-        public void Move(Vector2 movement)
+    private void WalkTowardsDaisy(Transform daisyTransform)
     {
-        
-        this.movement = movement;
-        body.velocity = movement * speed;
-        Rotate(movement);
-
+        if (_isDead) return;
+        _shouldWalkTowardsDaisy = true;
+        if (_isClimbing || _isJumping)
+            _latestDaisyTransform = daisyTransform;
+        else
+        {
+            _shouldWalkTowardsDaisy = false;
+            var differenceX = transform.position.x - daisyTransform.position.x;
+            Move(differenceX < 0 ? Vector2.right : Vector2.left);
+        }
     }
 
-    public void Rotate(Vector2 movement)
+    public void EndOfJumpingOrClimbing()
     {
-
-
-        if (movement == Vector2.left)
-        { transform.rotation = Quaternion.Euler(0, 0, 0);
-            
-        }
-
-        if (movement == Vector2.right)
-        { transform.rotation = Quaternion.Euler(0, 180, 0);
-            
-        }
-
-
-    }
-
-    public void RandomMove()
-    {
-        int rand = Random.Range(0,2);
-
-        switch(rand)
-        {
-            case 0:
-                Move(Vector2.right);
-               
-                break;
-
-            case 1:
-                Move(Vector2.left);
-                
-                break;
-
-            default:
-                Move(Vector2.zero);
-                break;
-        }
-
-        
-        
-    }
-    
-    public void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Ladder")
-        {
-            MarioAnimator.SetInteger("climb", 1);
-            climbing = true;
-            Move(Vector2.up);
-        }
-
-        if (collision.gameObject.tag == "Barrel" || collision.gameObject.tag == "Luigi" || collision.gameObject.tag == "Pow")
-        {
-            if (dead == false)
-            {
-                GameObject.Find("Score").GetComponent<ScoreManager>().AddPoint();
-                MarioAnimator.SetBool("dead", true);
-                StartCoroutine(Die());
-            }
-        }
-        
-        if (collision.gameObject.tag == "Pauli")
-        {
-            GameObject.Find("Score").GetComponent<ScoreManager>().EndGame();
-        }
-        
+        if (!_shouldWalkTowardsDaisy) return;
+        _shouldWalkTowardsDaisy = false;
+        if (!_latestDaisyTransform) return;
+        WalkTowardsDaisy(_latestDaisyTransform);
     }
     
     public void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Ladder")
-        {
-            MarioAnimator.SetInteger("climb", 0);
-            climbing = false;
-            RandomMove();
-
-        }
+        if (!collision.gameObject.CompareTag("Ladder")) return;
+        _marioAnimator.SetInteger("climb", 0);
+        _isClimbing = false;
+        RandomMove();
+        EndOfJumpingOrClimbing();
     }
 }
