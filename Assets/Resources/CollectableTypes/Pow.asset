@@ -11,7 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d46a622b39464f0eb14e515ff2de669b, type: 3}
   m_Name: Pow
   m_EditorClassIdentifier: 
-  Type: 1
-  Icon: {fileID: 21300006, guid: a5f29217c5fe77c4ca5a7d4553ec30fe, type: 3}
-  Prefab: {fileID: 0}
+  Type: 0
+  Icon: {fileID: 21300000, guid: a24aab4d14ff9c74791f88076925e051, type: 2}
+  Prefab: {fileID: 1723935745399668, guid: 54a27af0988323b499de4fef50774251, type: 2}
   Amount: 0
+  ProjectileType: 0

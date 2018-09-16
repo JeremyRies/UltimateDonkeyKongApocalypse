@@ -10,7 +10,7 @@ public class Pow : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         Powbody = GetComponent<BoxCollider2D>();
-
+		GameObject.Find("DonkeyKong").GetComponent<DonkeyKongController>()._collectableRunning = true;
         StartCoroutine(POW());
 	}
 	
@@ -35,6 +35,7 @@ public class Pow : MonoBehaviour {
         {
             yield return new WaitForSeconds(1);
             state = 2;
+	        GameObject.Find("DonkeyKong").GetComponent<DonkeyKongController>()._collectableRunning = true;
             Destroy(gameObject);
         }
 
