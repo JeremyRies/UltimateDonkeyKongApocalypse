@@ -1,3 +1,3 @@
 ﻿public enum CollectableEnum {
-    Fire,Pow,Luigi,Rolling,Normal,Big
+    Fire,Pow,Luigi,Rolling,Big,Normal
 }
