@@ -48,7 +48,7 @@ MonoBehaviour:
     Clip: 0
   - AudioClip: {fileID: 8300000, guid: 2944cddda54de2a44b6f0c97f63f4f22, type: 3}
     Clip: 0
-  - AudioClip: {fileID: 8300000, guid: 0caa45d0aebd932409fe44918d7fab03, type: 3}
+  - AudioClip: {fileID: 8300000, guid: a73330328ab811249815a64f64756806, type: 3}
     Clip: 7
-  - AudioClip: {fileID: 8300000, guid: c0cbca2d16dd50f4b83939b103a0ff07, type: 3}
+  - AudioClip: {fileID: 8300000, guid: 8ce49a0c2ee9e174390c9f34ea4a9165, type: 3}
     Clip: 2

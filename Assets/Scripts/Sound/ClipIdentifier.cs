@@ -12,6 +12,6 @@ namespace Sound
         ItemsActivate,
         Pow,
         Luigi,
-        Peach
+        Daisy
     }
 }
