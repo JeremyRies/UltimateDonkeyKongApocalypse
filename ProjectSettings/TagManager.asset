@@ -11,6 +11,7 @@ TagManager:
   - Luigi
   - Pow
   - Daisy
+  - Boundary
   layers:
   - Default
   - TransparentFX
