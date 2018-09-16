@@ -39,7 +39,7 @@ public static class StateController
 
     public static void GameOver()
     {
-        throw new NotImplementedException();
+        throw new NotImplementedException(); //GameOver in scoremanager currently activating panel and setting highscore
     }
 
     public static void ArchiveHighScoreAs(string name)
