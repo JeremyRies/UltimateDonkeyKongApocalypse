@@ -39,7 +39,7 @@ public static class StateController
 
     public static void GameOver()
     {
-
+        throw new NotImplementedException();
     }
 
     public static void ArchiveHighScoreAs(string name)
