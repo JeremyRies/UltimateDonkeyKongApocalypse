@@ -11,8 +11,8 @@ public class InventoryManager : MonoBehaviour
 	[SerializeField] private GameObject _bigArrow;
 	[SerializeField] private Text _luigiAmountText;
 	[SerializeField] private GameObject _luigiArrow;
-	[SerializeField] private Text _rollingAmountText;
-	[SerializeField] private GameObject _rollingArrow;
+	[SerializeField] private Text _daisyAmountText;
+	[SerializeField] private GameObject _daisyArrow;
 	[SerializeField] private Text _powAmountText;
 	[SerializeField] private GameObject _powArrow;
 	
@@ -54,7 +54,7 @@ public class InventoryManager : MonoBehaviour
 		{
 			{0, _bigArrow},
 			{2, _luigiArrow},
-			{1, _rollingArrow},
+			{1, _daisyArrow},
 			{3, _powArrow}
 		};
 		
@@ -62,7 +62,7 @@ public class InventoryManager : MonoBehaviour
 		{
 			{0, CollectableEnum.Big},
 			{2, CollectableEnum.Luigi},
-			{1, CollectableEnum.Rolling},
+			{1, CollectableEnum.Daisy},
 			{3, CollectableEnum.Pow}
 		};
 	}
@@ -71,7 +71,7 @@ public class InventoryManager : MonoBehaviour
 	{
 		_bigAmountText.text = _collectableAmountDictionary[CollectableEnum.Big].ToString();
 		_luigiAmountText.text = _collectableAmountDictionary[CollectableEnum.Luigi].ToString();
-		_rollingAmountText.text = _collectableAmountDictionary[CollectableEnum.Rolling].ToString();
+		_daisyAmountText.text = _collectableAmountDictionary[CollectableEnum.Daisy].ToString();
 		_powAmountText.text = _collectableAmountDictionary[CollectableEnum.Pow].ToString();
 		
 		if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))

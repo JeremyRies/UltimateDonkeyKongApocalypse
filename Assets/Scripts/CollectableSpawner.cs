@@ -1,5 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class CollectableSpawner : MonoBehaviour
 {
@@ -35,10 +39,12 @@ public class CollectableSpawner : MonoBehaviour
 
 	private CollectableEnum RandomCollectable()
 	{
-		if (Random.Range(0, 2) == 0)
-			return CollectableEnum.Big;
-		else
-			return CollectableEnum.Luigi;
+		List<CollectableEnum> collectables = new List<CollectableEnum>
+		{
+			CollectableEnum.Big, CollectableEnum.Luigi, CollectableEnum.Pow
+		};
+		
+		return collectables[Random.Range(0,3)];
 	}
 	
 }

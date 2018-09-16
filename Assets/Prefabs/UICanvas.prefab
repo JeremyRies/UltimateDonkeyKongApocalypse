@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 222085168388662276}
   - component: {fileID: 114233811448362780}
   m_Layer: 0
-  m_Name: Rolling
+  m_Name: Daisy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -242,7 +242,7 @@ GameObject:
   - component: {fileID: 222211073310422724}
   - component: {fileID: 114203176932511414}
   m_Layer: 0
-  m_Name: RollingPowerUp
+  m_Name: DaisyPowerUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -497,7 +497,7 @@ GameObject:
   - component: {fileID: 222197676977867218}
   - component: {fileID: 114566890155049652}
   m_Layer: 0
-  m_Name: RollingAmount
+  m_Name: DaisyAmount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -761,7 +761,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300006, guid: a5f29217c5fe77c4ca5a7d4553ec30fe, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a97a84c63db352041b72c4755b9342cd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -926,7 +926,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300006, guid: b6c8ff0febe464947b7e67b0683f359a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 61921ccc52befa64b86b2f6fab26c43b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1166,8 +1166,8 @@ MonoBehaviour:
   _bigArrow: {fileID: 1733047794640562}
   _luigiAmountText: {fileID: 114575929784043814}
   _luigiArrow: {fileID: 1438503013675860}
-  _rollingAmountText: {fileID: 114566890155049652}
-  _rollingArrow: {fileID: 1044003684266134}
+  _daisyAmountText: {fileID: 114566890155049652}
+  _daisyArrow: {fileID: 1044003684266134}
   _powAmountText: {fileID: 114749404943040776}
   _powArrow: {fileID: 1708150633259090}
   activeSpecial: 0
