@@ -117,8 +117,9 @@ public class DonkeyKongController : MonoBehaviour
 
     private void ClampXPosition()
     {
-        var xPostition = transform.position.x;
-        Mathf.Clamp(xPostition, -MaxOffset, MaxOffset);
+        var position = transform.position;
+        position.x = Mathf.Clamp(position.x, -MaxOffset, MaxOffset);
+        transform.position = position;
     }
 
     public void ReceivedCollectable(CollectableEnum typeOfCollectable)
