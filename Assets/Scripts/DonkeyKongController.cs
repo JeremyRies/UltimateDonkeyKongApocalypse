@@ -23,6 +23,7 @@ public class DonkeyKongController : MonoBehaviour
     Animator DonkeyAnimator;
     private float _timeSinceLastShot;
     public bool _collectableRunning;
+    private const float MaxOffset = 6.5f;
 
     void Start()
     {
@@ -105,11 +106,19 @@ public class DonkeyKongController : MonoBehaviour
     {
         
         gameObject.transform.position += Vector3.left * Time.deltaTime * _movementSpeed;
+        ClampXPosition();
     }
 
     private void GoRight()
     {
         gameObject.transform.position += Vector3.right * Time.deltaTime * _movementSpeed;
+        ClampXPosition();
+    }
+
+    private void ClampXPosition()
+    {
+        var xPostition = transform.position.x;
+        Mathf.Clamp(xPostition, -MaxOffset, MaxOffset);
     }
 
     public void ReceivedCollectable(CollectableEnum typeOfCollectable)
