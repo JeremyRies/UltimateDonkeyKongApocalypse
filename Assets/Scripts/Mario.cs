@@ -194,7 +194,13 @@ public class Mario : MonoBehaviour {
             MarioAnimator.SetBool("dead", true);
             StartCoroutine(Die());
         }
+        
+        if (collision.gameObject.tag == "Pauli")
+        {
+            GameObject.Find("Score").GetComponent<ScoreManager>().EndGame();
+        }
     }
+    
     public void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Ladder")
