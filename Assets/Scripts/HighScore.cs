@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -38,13 +39,18 @@ public class HighScore : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
             Back();
+
+        if (StateController.GameIsOver && Input.GetKey(KeyCode.Space))
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 
     private void Back()
     {
         if (IsEndOfGame)
         {
-            throw new NotImplementedException();
+            StateController.GameIsOver = true;
         }
         else
         {

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 2
   Icon: {fileID: 21300000, guid: 61921ccc52befa64b86b2f6fab26c43b, type: 3}
-  Prefab: {fileID: 0}
+  Prefab: {fileID: 1739369101135414, guid: 8ecfa4d3c51e00f42afb13f717508c96, type: 2}
   Amount: 0
   ProjectileType: 0

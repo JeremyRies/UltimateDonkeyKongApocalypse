@@ -5,12 +5,12 @@ using UnityEngine;
 public static class StateController
 {
     public static bool IsPaused = false;
+    public static bool GameIsOver = false;
     public static int CurrentVolume = 13;
     public static int CurrentScore = 0;
 
     public static ScoreEntry[] HighScore = 
     {
-        new ScoreEntry("AAAA", 0),
         new ScoreEntry("AAAA", 0),
         new ScoreEntry("AAAA", 0),
         new ScoreEntry("AAAA", 0),
@@ -22,7 +22,7 @@ public static class StateController
     public static void GameOver()
     {
         IsPaused = true;
-        GameObject.Find("Canvas").GetComponent<StateControllerMono>().InstantiateGameOverPanel();
+        GameObject.Find("UICanvas").GetComponent<StateControllerMono>().InstantiateGameOverPanel();
     }
 
     public static void ArchiveHighScoreAs(string name)
