@@ -67,7 +67,14 @@ public class DonkeyKongController : MonoBehaviour
                 }
                 else
                 {
-                    Instantiate(InventoryManager.Instance._collectablePrefabDictionary[obj]);
+                    if (obj == CollectableEnum.Daisy)
+                    {
+                        Instantiate(InventoryManager.Instance._collectablePrefabDictionary[obj], transform.position, Quaternion.identity);
+                    }
+                    else
+                    {
+                        Instantiate(InventoryManager.Instance._collectablePrefabDictionary[obj]);
+                    }
                 }
             
                 SoundEffectService.Instance.PlayClip(ClipIdentifier.ItemsActivate);
