@@ -16,13 +16,8 @@ public class DonkeyKongController : MonoBehaviour
     [SerializeField] private float _collectableDuration;
     [Space(10)]
 
-    [SerializeField] private GameObject _itemPrefab;
-
-    public Dictionary<CollectableEnum, Sprite> _collectableIconsDictionary;    
-    private Dictionary<CollectableEnum, GameObject> _collectablePrefabDictionary;
-    private Queue<CollectableEnum> _items;
-
     private TopDownBarrel projectile;
+
 
     Animator DonkeyAnimator;
     private float _timeSinceLastShot;
@@ -32,13 +27,7 @@ public class DonkeyKongController : MonoBehaviour
     {
        DonkeyAnimator = GetComponent<Animator>();
         _timeSinceLastShot = _shotCooldown;
-        var types = Resources.LoadAll<CollectableObject>("CollectableTypes");
- 
-        _collectableIconsDictionary = types.ToDictionary(x => x.Type, y => y.Icon);
-        _collectablePrefabDictionary = types.ToDictionary(x => x.Type, y => y.Prefab);
-
-        projectile = _collectablePrefabDictionary[CollectableEnum.Normal].GetComponent<TopDownBarrel>();
-        _items = new Queue<CollectableEnum>();
+        projectile = InventoryManager.Instance._collectablePrefabDictionary[CollectableEnum.Normal].GetComponent<TopDownBarrel>();
     }
 
     void Update ()
@@ -64,13 +53,13 @@ public class DonkeyKongController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.X))
         {
-            /* OLD BEHAVIOUR
-            if (_items.Count!=0 && !_collectableRunning)
+            if (InventoryManager.Instance.GetActiveSpecialAmount()!=0 && !_collectableRunning)
             {
-                projectile = _collectablePrefabDictionary[_items.Dequeue()].GetComponent<TopDownBarrel>();
-                Destroy(GameObject.Find("Items").transform.GetChild(0).gameObject);
+                projectile = InventoryManager.Instance.GetActiveSpecial().GetComponent<TopDownBarrel>();
+                InventoryManager.Instance.RemoveCollectableFromActive();
                 StartCoroutine(CollectableTimer());
-            }*/
+            }
+            
         }
 
         if (Input.GetKeyDown(KeyCode.Escape) && !StateController.IsPaused)
@@ -113,18 +102,14 @@ public class DonkeyKongController : MonoBehaviour
 
     public void ReceivedCollectable(CollectableEnum typeOfCollectable)
     {
-        GameObject.Find("Inventory").GetComponent<InventoryManager>().AddCollectable(typeOfCollectable);
-        /* OLD BEHAVIOUR
-         _items.Enqueue(typeOfCollectable);
-         var item = Instantiate(_itemPrefab, GameObject.Find("Items").transform);
-         item.GetComponent<Image>().sprite = _collectableIconsDictionary[typeOfCollectable];*/
+        InventoryManager.Instance.AddCollectable(typeOfCollectable);
     }
 
     IEnumerator CollectableTimer()
     {
         _collectableRunning = true;
         yield return new WaitForSeconds(_collectableDuration);
-        projectile = _collectablePrefabDictionary[CollectableEnum.Normal].GetComponent<TopDownBarrel>();
+        projectile = InventoryManager.Instance._collectablePrefabDictionary[CollectableEnum.Normal].GetComponent<TopDownBarrel>();
         _collectableRunning = false;
     }
 }
