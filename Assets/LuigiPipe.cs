@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Sound;
 using UnityEngine;
 
 public class LuigiPipe : MonoBehaviour {
@@ -12,7 +13,7 @@ public class LuigiPipe : MonoBehaviour {
 	    GameObject.Find("DonkeyKong").GetComponent<DonkeyKongController>()._collectableRunning = true;
         StartCoroutine(Die());
         RandomMove();
-
+        SoundEffectService.Instance.PlayClip(ClipIdentifier.Luigi);
     }
 	
 	// Update is called once per frame
