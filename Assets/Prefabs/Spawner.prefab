@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a3efc81828370f4a84abe4555e8aea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnTime: 0
-  _destroyTime: 0
+  _spawnTime: 20
+  _destroyTime: 5
   _collectablePrefab: {fileID: 1043291329789988, guid: 1e4ef1a9f2c305b46b3ff317c3cff93d,
     type: 2}

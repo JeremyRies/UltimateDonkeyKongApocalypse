@@ -28,7 +28,7 @@ public class Luigi : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        Boundary();
+        
     }
 
     public IEnumerator JumpCheck()
@@ -75,6 +75,25 @@ public class Luigi : MonoBehaviour {
         jumping = false;
         Move(movement);
         GetComponent<BoxCollider2D>().enabled = true;
+
+    }
+
+    public void Rotate(Vector2 movement)
+    {
+
+
+        if (movement == Vector2.left)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+
+        }
+
+        if (movement == Vector2.right)
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+
+        }
+
 
     }
 
@@ -134,8 +153,9 @@ public class Luigi : MonoBehaviour {
     {
         this.movement = movement;
         body.velocity = movement * speed;
+        Rotate(movement);
 
 
     }
-    
+
 }

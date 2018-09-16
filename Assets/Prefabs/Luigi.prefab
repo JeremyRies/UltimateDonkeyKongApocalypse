@@ -20,11 +20,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4542392949906062}
   - component: {fileID: 212317801229013692}
-  - component: {fileID: 114418303420217692}
   - component: {fileID: 50070999474417124}
   - component: {fileID: 61899290161733420}
   - component: {fileID: 61714988758892300}
   - component: {fileID: 95039424593927946}
+  - component: {fileID: 114915532616883016}
   m_Layer: 0
   m_Name: Luigi
   m_TagString: Untagged
@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1148681329576912}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.351, y: 0.406, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -133,7 +133,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114418303420217692
+--- !u!114 &114915532616883016
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,12 +141,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1148681329576912}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccbee83b2a89a9743a417ebacd84460e, type: 3}
+  m_Script: {fileID: 11500000, guid: d18fdb79b86dd76428ee3770e713ec8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
-  boundarys: 6.5
-  jumpchance: 50
+  speed: 7
+  boundarys: 0
+  jumpchance: 90
 --- !u!212 &212317801229013692
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -182,7 +182,7 @@ SpriteRenderer:
   m_SortingLayerID: -399131029
   m_SortingLayer: 2
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: fe1286ddfa2e9ea49be45327cadb8550, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b6a12cbe65ea5134a85c507fe452270d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
