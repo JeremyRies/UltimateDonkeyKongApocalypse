@@ -26,7 +26,7 @@ public class Mario : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Boundary();
+	    Boundary();
     }
 
     
@@ -131,6 +131,7 @@ public class Mario : MonoBehaviour {
 
         public void Move(Vector2 movement)
     {
+        
         this.movement = movement;
         body.velocity = movement * speed;
         Rotate(movement);

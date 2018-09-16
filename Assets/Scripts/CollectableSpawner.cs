@@ -1,7 +1,5 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
 
 public class CollectableSpawner : MonoBehaviour
 {
@@ -37,7 +35,10 @@ public class CollectableSpawner : MonoBehaviour
 
 	private CollectableEnum RandomCollectable()
 	{
-		return CollectableEnum.Luigi;
+		if (Random.Range(0, 2) == 0)
+			return CollectableEnum.Big;
+		else
+			return CollectableEnum.Luigi;
 	}
 	
 }

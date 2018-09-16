@@ -58,7 +58,7 @@ public class Menu : MonoBehaviour
     private void Resume()
     {
         StateController.IsPaused = false;
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 
     private void Volume()

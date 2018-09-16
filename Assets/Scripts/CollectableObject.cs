@@ -8,4 +8,5 @@ public class CollectableObject : ScriptableObject
    [SerializeField]public Sprite Icon;
    [SerializeField]public GameObject Prefab;
    [SerializeField]public int Amount;
+   [SerializeField] public bool ProjectileType;
 }
