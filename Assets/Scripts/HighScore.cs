@@ -42,6 +42,7 @@ public class HighScore : MonoBehaviour
 
         if (StateController.GameIsOver && Input.GetKey(KeyCode.Space))
         {
+            StateController.CurrentScore = 0;
             SceneManager.LoadScene(0);
         }
     }

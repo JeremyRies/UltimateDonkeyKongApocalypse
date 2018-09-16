@@ -12,8 +12,8 @@ public class ScoreManager : MonoBehaviour
 	
 	public void AddPoint()
 	{
-		var score = StateController.CurrentScore++;
-		scoreText.text = score.ToString();
-	}
+	    StateController.CurrentScore++;
+        scoreText.text = StateController.CurrentScore.ToString();
+    }
 
 }
