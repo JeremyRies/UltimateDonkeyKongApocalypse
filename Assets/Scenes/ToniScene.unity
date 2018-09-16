@@ -584,7 +584,7 @@ Prefab:
         Press W and S to select
 
 
-        Press SPACE to activate Daisy
+        Press SPACE to stop Daisy
 
 
 
@@ -4185,6 +4185,16 @@ Prefab:
     - target: {fileID: 4556087303391948, guid: 1f35de6cd353e9c49bc5344ea80bcc5b, type: 2}
       propertyPath: m_LocalPosition.y
       value: -0.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 114680826361662538, guid: 1f35de6cd353e9c49bc5344ea80bcc5b,
+        type: 2}
+      propertyPath: _destroyTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114680826361662538, guid: 1f35de6cd353e9c49bc5344ea80bcc5b,
+        type: 2}
+      propertyPath: _spawnTime
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f35de6cd353e9c49bc5344ea80bcc5b, type: 2}

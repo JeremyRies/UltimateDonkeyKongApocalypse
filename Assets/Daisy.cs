@@ -25,21 +25,12 @@ public class Daisy : MonoBehaviour {
 
         int state = 0;
 
-        while (state == 0)
-        {
-            yield return true;
-            if(Input.GetKey(KeyCode.Space))
-            {
-                speed = 0;
-                body.velocity = Vector2.down * speed;
-                state = 1;
-            }
-        }
+        
 
-        while (state == 1)
+        while (state == 1 )
         {
             yield return new WaitForSeconds(5);
-            state = 2;
+            state = 0;
             Destroy(gameObject);
 
         }
