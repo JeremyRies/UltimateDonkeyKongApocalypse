@@ -38,7 +38,7 @@ public class Mario : MonoBehaviour {
 	    else
 	    {
             Move(_movementDirection);
-            if (_shouldWalkTowardsDaisy && !_isClimbing && !_isJumping)
+            if (_shouldWalkTowardsDaisy && !_isClimbing && !_isJumping && _latestDaisyTransform)
                 WalkTowardsDaisy();
 	        Boundary();
         }
@@ -119,10 +119,8 @@ public class Mario : MonoBehaviour {
     {
         if (StateController.IsPaused)
             movement = Vector2.zero;
-        else
-        {
+        if (movement != Vector2.zero)
             _movementDirection = movement;
-        }
         _body.velocity = movement * _speed;
         ChooseDirection(movement);
     }
@@ -170,6 +168,7 @@ public class Mario : MonoBehaviour {
 
     private void WalkUp()
     {
+        if (_shouldWalkTowardsDaisy) return;
         _marioAnimator.SetInteger("climb", 1);
         _isClimbing = true;
         Move(Vector2.up);
@@ -224,7 +223,18 @@ public class Mario : MonoBehaviour {
     private void WalkTowardsDaisy()
     {
         var differenceX = transform.position.x - _latestDaisyTransform.position.x;
-        Move(differenceX < 0 ? Vector2.right : Vector2.left);
+        if (differenceX >= 0.2)
+        {
+            Move(differenceX < 0 ? Vector2.right : Vector2.left);
+
+        }
+        else
+        {if (_isDead==false)
+            {
+                Move(Vector2.zero);
+                _jumpChance = 0;
+            }
+        }
     }
 
     public void EndOfJumpingOrClimbing()
