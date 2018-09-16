@@ -71,9 +71,6 @@ public class DonkeyKongController : MonoBehaviour
             }
             
         }
-
-        if (Input.GetKeyDown(KeyCode.Escape) && !StateController.IsPaused)
-            StateController.Pause();
         
         if (Input.GetKey(KeyCode.Space))
         {

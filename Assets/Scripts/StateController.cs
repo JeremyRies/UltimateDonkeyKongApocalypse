@@ -19,32 +19,21 @@ public static class StateController
         new ScoreEntry("AAAA", 0)
     };
 
-    public static void AddHighScore(string name, int score)
-    {
-        for (var i = 0; i < HighScore.Length; i++)
-        {
-            if (score <= HighScore[i].Score) continue;
-            for (var j = HighScore.Length - 1; j > i; j--)
-                HighScore[j] = HighScore[j - 1];
-            HighScore[i] = new ScoreEntry(name.Substring(0, 4), score);
-            break;
-        }
-    }
-
-    public static void Pause()
-    {
-        GameObject.Find("Canvas").transform.Find("MainMenu(Clone)").gameObject.SetActive(true);
-        IsPaused = true;
-    }
-
     public static void GameOver()
     {
-        throw new NotImplementedException(); //GameOver in scoremanager currently activating panel and setting highscore
+        IsPaused = true;
+        GameObject.Find("Canvas").GetComponent<StateControllerMono>().InstantiateGameOverPanel();
     }
 
     public static void ArchiveHighScoreAs(string name)
     {
-        AddHighScore(name, CurrentScore);
-        CurrentScore = 0;
+        for (var i = 0; i < HighScore.Length; i++)
+        {
+            if (CurrentScore <= HighScore[i].Score) continue;
+            for (var j = HighScore.Length - 1; j > i; j--)
+                HighScore[j] = HighScore[j - 1];
+            HighScore[i] = new ScoreEntry(name.Substring(0, 4), CurrentScore);
+            break;
+        }
     }
 }
