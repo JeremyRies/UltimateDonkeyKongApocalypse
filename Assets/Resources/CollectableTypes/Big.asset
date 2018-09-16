@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Name: Big
   m_EditorClassIdentifier: 
   Type: 4
-  Icon: {fileID: 21300000, guid: ebf5b91eec629554b9258a76e8e77b09, type: 3}
+  Icon: {fileID: 21300000, guid: 7500e3df81ebed444983be085dc42122, type: 3}
   Prefab: {fileID: 1106647498324636, guid: 4696e5cecfa106140a6dcf97f55d84f7, type: 2}
   Amount: 0
+  ProjectileType: 1

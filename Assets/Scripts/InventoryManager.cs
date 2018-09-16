@@ -19,6 +19,7 @@ public class InventoryManager : MonoBehaviour
 	public Dictionary<CollectableEnum, Sprite> _collectableIconsDictionary;    
 	public Dictionary<CollectableEnum, GameObject> _collectablePrefabDictionary;
 	public Dictionary<CollectableEnum, int> _collectableAmountDictionary;
+	public Dictionary<CollectableEnum, bool> _collectableProjectileDictionary;
 	private Dictionary<int, GameObject> _activeSpecialArrowDictionary;
 	private Dictionary<int, CollectableEnum> _activeSpecialCollectableDictionary;
 
@@ -47,6 +48,7 @@ public class InventoryManager : MonoBehaviour
 		_collectableIconsDictionary = types.ToDictionary(x => x.Type, y => y.Icon);
 		_collectablePrefabDictionary = types.ToDictionary(x => x.Type, y => y.Prefab);
 		_collectableAmountDictionary = types.ToDictionary(x => x.Type, y => y.Amount);
+		_collectableProjectileDictionary = types.ToDictionary(x => x.Type, y => y.ProjectileType);
 
 		_activeSpecialArrowDictionary = new Dictionary<int, GameObject>
 		{
@@ -106,9 +108,9 @@ public class InventoryManager : MonoBehaviour
 		_collectableAmountDictionary[_activeSpecialCollectableDictionary[activeSpecial]]--;
 	}
 
-	public GameObject GetActiveSpecial()
+	public CollectableEnum GetActiveSpecial()
 	{
-		return _collectablePrefabDictionary[_activeSpecialCollectableDictionary[activeSpecial]];
+		return _activeSpecialCollectableDictionary[activeSpecial];
 	}
 	
 	public int GetActiveSpecialAmount()

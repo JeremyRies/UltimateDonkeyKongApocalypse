@@ -55,9 +55,19 @@ public class DonkeyKongController : MonoBehaviour
         {
             if (InventoryManager.Instance.GetActiveSpecialAmount()!=0 && !_collectableRunning)
             {
-                projectile = InventoryManager.Instance.GetActiveSpecial();
+                var obj = InventoryManager.Instance.GetActiveSpecial();
+                if (InventoryManager.Instance._collectableProjectileDictionary[obj])
+                {
+                    projectile = InventoryManager.Instance._collectablePrefabDictionary[obj];
+                    StartCoroutine(CollectableTimer());
+                }
+                else
+                {
+                    Instantiate(InventoryManager.Instance._collectablePrefabDictionary[obj]);
+                }
+            
                 InventoryManager.Instance.RemoveCollectableFromActive();
-                StartCoroutine(CollectableTimer());
+               
             }
             
         }
