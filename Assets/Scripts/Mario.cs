@@ -49,7 +49,8 @@ public class Mario : MonoBehaviour {
             if (Random.Range(1, 101) <= _jumpChance && 
                 !_isJumping && 
                 !_isClimbing && 
-                !_isDead)
+                !_isDead &&
+                !StateController.IsPaused)
             {
                 StartCoroutine(Jump(0.5f,3));
             }
