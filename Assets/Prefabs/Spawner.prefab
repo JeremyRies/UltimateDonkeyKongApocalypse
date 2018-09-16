@@ -50,6 +50,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4189910366957440}
   - component: {fileID: 114412628076433776}
+  - component: {fileID: 114680826361662538}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -119,3 +120,18 @@ MonoBehaviour:
   _spawnerLeft: {fileID: 1067458617579566}
   _spawnerRight: {fileID: 1039448307955968}
   _spawnTime: 0
+--- !u!114 &114680826361662538
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1546576698698572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a3efc81828370f4a84abe4555e8aea8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawnTime: 20
+  _destroyTime: 5
+  _collectablePrefab: {fileID: 1043291329789988, guid: 1e4ef1a9f2c305b46b3ff317c3cff93d,
+    type: 2}
