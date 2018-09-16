@@ -35,6 +35,25 @@ public static class StateController
             HighScore[i] = new ScoreEntry(name.Substring(0, 4), CurrentScore);
             break;
         }
+<<<<<<< HEAD
+=======
+    }
+
+    public static void Pause()
+    {
+        GameObject.Find("Canvas").transform.Find("MainMenu(Clone)").gameObject.SetActive(true);
+        IsPaused = true;
+    }
+
+    public static void GameOver()
+    {
+        throw new NotImplementedException(); //GameOver in scoremanager currently activating panel and setting highscore
+    }
+
+    public static void ArchiveHighScoreAs(string name)
+    {
+        AddHighScore(name, CurrentScore);
+>>>>>>> 47c68f2af8551bcffcb019c20ccda9de842cd401
         CurrentScore = 0;
     }
 }

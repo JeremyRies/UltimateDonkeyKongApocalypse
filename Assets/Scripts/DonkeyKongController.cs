@@ -5,39 +5,29 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Experimental.UIElements;
+using UnityEngine.UI;
 using Image = UnityEngine.UI.Image;
 
 public class DonkeyKongController : MonoBehaviour
 {
-    [SerializeField] private float _projectileSpeed;
+    [SerializeField] public float _projectileSpeed;
     [SerializeField] private float _movementSpeed;
     [SerializeField] private float _shotCooldown;
     [SerializeField] private float _collectableDuration;
     [Space(10)]
 
-    [SerializeField] private GameObject _itemPrefab;
+    private GameObject projectile;
 
-    public Dictionary<CollectableEnum, Sprite> _collectableIconsDictionary;    
-    private Dictionary<CollectableEnum, GameObject> _collectablePrefabDictionary;
-    private Queue<CollectableEnum> _items;
-
-    private TopDownBarrel projectile;
 
     Animator DonkeyAnimator;
     private float _timeSinceLastShot;
-    private bool _collectableRunning;
+    public bool _collectableRunning;
 
     void Start()
     {
        DonkeyAnimator = GetComponent<Animator>();
         _timeSinceLastShot = _shotCooldown;
-        var types = Resources.LoadAll<CollectableObject>("CollectableTypes");
- 
-        _collectableIconsDictionary = types.ToDictionary(x => x.Type, y => y.Icon);
-        _collectablePrefabDictionary = types.ToDictionary(x => x.Type, y => y.Prefab);
-
-        projectile = _collectablePrefabDictionary[CollectableEnum.Normal].GetComponent<TopDownBarrel>();
-        _items = new Queue<CollectableEnum>();
+        projectile = InventoryManager.Instance._collectablePrefabDictionary[CollectableEnum.Normal];
     }
 
     void Update ()
@@ -63,12 +53,23 @@ public class DonkeyKongController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.X))
         {
-            if (_items.Count!=0 && !_collectableRunning)
+            if (InventoryManager.Instance.GetActiveSpecialAmount()!=0 && !_collectableRunning)
             {
-                projectile = _collectablePrefabDictionary[_items.Dequeue()].GetComponent<TopDownBarrel>();
-                Destroy(GameObject.Find("Items").transform.GetChild(0).gameObject);
-                StartCoroutine(CollectableTimer());
+                var obj = InventoryManager.Instance.GetActiveSpecial();
+                if (InventoryManager.Instance._collectableProjectileDictionary[obj])
+                {
+                    projectile = InventoryManager.Instance._collectablePrefabDictionary[obj];
+                    StartCoroutine(CollectableTimer());
+                }
+                else
+                {
+                    Instantiate(InventoryManager.Instance._collectablePrefabDictionary[obj]);
+                }
+            
+                InventoryManager.Instance.RemoveCollectableFromActive();
+               
             }
+            
         }
         
         if (Input.GetKey(KeyCode.Space))
@@ -92,7 +93,6 @@ public class DonkeyKongController : MonoBehaviour
     {
         DonkeyAnimator.SetBool("shoot", true);
         var barrelInstance = Instantiate(projectile, new Vector2(transform.position.x, transform.position.y+0.5f), Quaternion.identity);
-        barrelInstance.Throw(_projectileSpeed);
     }
 
     private void GoLeft()
@@ -108,16 +108,14 @@ public class DonkeyKongController : MonoBehaviour
 
     public void ReceivedCollectable(CollectableEnum typeOfCollectable)
     {
-        _items.Enqueue(typeOfCollectable);
-        var item = Instantiate(_itemPrefab, GameObject.Find("Items").transform);
-        item.GetComponent<Image>().sprite = _collectableIconsDictionary[typeOfCollectable];
+        InventoryManager.Instance.AddCollectable(typeOfCollectable);
     }
 
     IEnumerator CollectableTimer()
     {
         _collectableRunning = true;
         yield return new WaitForSeconds(_collectableDuration);
-        projectile = _collectablePrefabDictionary[CollectableEnum.Normal].GetComponent<TopDownBarrel>();
+        projectile = InventoryManager.Instance._collectablePrefabDictionary[CollectableEnum.Normal];
         _collectableRunning = false;
     }
 }

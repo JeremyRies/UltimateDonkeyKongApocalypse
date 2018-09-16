@@ -133,8 +133,7 @@ public class Mario : MonoBehaviour {
         this.movement = movement;
         body.velocity = movement * speed;
         Rotate(movement);
-        
-        
+
     }
 
     public void Rotate(Vector2 movement)
@@ -188,13 +187,23 @@ public class Mario : MonoBehaviour {
             Move(Vector2.up);
         }
 
-        if (collision.gameObject.tag == "Barrel")
+        if (collision.gameObject.tag == "Barrel" || collision.gameObject.tag == "Luigi" )
         {
-            GameObject.Find("Score").GetComponent<ScoreManager>().AddPoint();
-            MarioAnimator.SetBool("dead", true);
-            StartCoroutine(Die());
+            if (dead == false)
+            {
+                GameObject.Find("Score").GetComponent<ScoreManager>().AddPoint();
+                MarioAnimator.SetBool("dead", true);
+                StartCoroutine(Die());
+            }
         }
+        
+        if (collision.gameObject.tag == "Pauli")
+        {
+            GameObject.Find("Score").GetComponent<ScoreManager>().EndGame();
+        }
+        
     }
+    
     public void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Ladder")

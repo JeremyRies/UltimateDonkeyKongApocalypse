@@ -1,7 +1,5 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
 
 public class CollectableSpawner : MonoBehaviour
 {
@@ -26,9 +24,10 @@ public class CollectableSpawner : MonoBehaviour
             {
                 yield return null;
             }
+			
 			GameObject collectable = Instantiate(_collectablePrefab);
 			CollectableEnum type = RandomCollectable();
-			collectable.GetComponent<Collectable>().SetType(type,GameObject.Find("DonkeyKong").GetComponent<DonkeyKongController>()._collectableIconsDictionary[type]);
+			collectable.GetComponent<Collectable>().SetType(type,InventoryManager.Instance._collectableIconsDictionary[type]);
 			collectable.transform.position = new Vector3(Random.Range(-5, 5), Random.Range(-4, 2), 0);
 			yield return new WaitForSeconds(_spawnTime);
 		}
@@ -36,8 +35,10 @@ public class CollectableSpawner : MonoBehaviour
 
 	private CollectableEnum RandomCollectable()
 	{
-		// return some random enumtype;
-		return CollectableEnum.Big;
+		if (Random.Range(0, 2) == 0)
+			return CollectableEnum.Big;
+		else
+			return CollectableEnum.Luigi;
 	}
 	
 }
