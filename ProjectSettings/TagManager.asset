@@ -8,6 +8,7 @@ TagManager:
   - Barrel
   - Floor
   - Pauli
+  - Luigi
   layers:
   - Default
   - TransparentFX

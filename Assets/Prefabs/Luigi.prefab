@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 114915532616883016}
   m_Layer: 0
   m_Name: Luigi
-  m_TagString: Untagged
+  m_TagString: Luigi
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124,7 +124,7 @@ Animator:
   m_GameObject: {fileID: 1148681329576912}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c20e30fa32fbff54ba592c5bb2cc024d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 27e5fa6f1d72b3240b999c64e7b18319, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
-  boundarys: 0
+  boundarys: 10
   jumpchance: 90
 --- !u!212 &212317801229013692
 SpriteRenderer:

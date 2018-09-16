@@ -28,7 +28,7 @@ public class Luigi : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        
+        Boundary();
     }
 
     public IEnumerator JumpCheck()
@@ -99,15 +99,11 @@ public class Luigi : MonoBehaviour {
 
     public void Boundary()
     {
-        if (transform.position.x > boundarys)
+        if (transform.position.x > boundarys || transform.position.x < -boundarys)
         {
-            Move(Vector2.left);
+            Destroy(gameObject);
         }
 
-        if (transform.position.x < -boundarys)
-        {
-            Move(Vector2.right);
-        }
     }
 
     public IEnumerator Die()
