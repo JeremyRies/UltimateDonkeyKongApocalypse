@@ -37,6 +37,7 @@ public class Mario : MonoBehaviour {
 	    }
 	    else
 	    {
+            Move(_movementDirection);
 	        Boundary();
         }
     }
@@ -115,7 +116,10 @@ public class Mario : MonoBehaviour {
     {
         if (StateController.IsPaused)
             movement = Vector2.zero;
-        _movementDirection = movement;
+        else
+        {
+            _movementDirection = movement;
+        }
         _body.velocity = movement * _speed;
         ChooseDirection(movement);
     }
