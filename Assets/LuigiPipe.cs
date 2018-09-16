@@ -9,6 +9,7 @@ public class LuigiPipe : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+	    GameObject.Find("DonkeyKong").GetComponent<DonkeyKongController>()._collectableRunning = true;
         StartCoroutine(Die());
         RandomMove();
 
@@ -83,5 +84,6 @@ public class LuigiPipe : MonoBehaviour {
         }
 
         Destroy(gameObject);
+        GameObject.Find("DonkeyKong").GetComponent<DonkeyKongController>()._collectableRunning = false;
     }
 }

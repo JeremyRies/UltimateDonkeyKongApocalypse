@@ -21,7 +21,7 @@ public class DonkeyKongController : MonoBehaviour
 
     Animator DonkeyAnimator;
     private float _timeSinceLastShot;
-    private bool _collectableRunning;
+    public bool _collectableRunning;
 
     void Start()
     {
