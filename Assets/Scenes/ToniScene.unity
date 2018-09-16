@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 12209468}
   - component: {fileID: 12209467}
   m_Layer: 0
-  m_Name: Luigi
+  m_Name: LuigiPowerUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -490,7 +490,7 @@ GameObject:
   - component: {fileID: 65384090}
   - component: {fileID: 65384089}
   m_Layer: 0
-  m_Name: FocusArrow
+  m_Name: Big
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -571,12 +571,12 @@ GameObject:
   - component: {fileID: 92671782}
   - component: {fileID: 92671781}
   m_Layer: 0
-  m_Name: FocusArrow (2)
+  m_Name: Luigi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &92671780
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3012,12 +3012,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bigAmountText: {fileID: 219453245}
   _bigAmount: 0
+  _bigArrow: {fileID: 65384087}
   _luigiAmountText: {fileID: 289773074}
   _luigiAmount: 0
+  _luigiArrow: {fileID: 0}
   _rollingAmountText: {fileID: 176730983}
   _rollingAmount: 0
+  _rollingArrow: {fileID: 0}
   _powAmountText: {fileID: 1958506783}
   _powAmount: 0
+  _powArrow: {fileID: 0}
+  activeSpecial: 0
 --- !u!1 &767868007
 GameObject:
   m_ObjectHideFlags: 0
@@ -3670,12 +3675,12 @@ GameObject:
   - component: {fileID: 857569923}
   - component: {fileID: 857569922}
   m_Layer: 0
-  m_Name: FocusArrow (3)
+  m_Name: Pow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &857569921
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5435,7 +5440,7 @@ GameObject:
   - component: {fileID: 1375237995}
   - component: {fileID: 1375237994}
   m_Layer: 0
-  m_Name: Pow
+  m_Name: PowPowerUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5715,7 +5720,7 @@ GameObject:
   - component: {fileID: 1464474515}
   - component: {fileID: 1464474514}
   m_Layer: 0
-  m_Name: Big
+  m_Name: BigPowerUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5769,12 +5774,12 @@ GameObject:
   - component: {fileID: 1496050179}
   - component: {fileID: 1496050178}
   m_Layer: 0
-  m_Name: FocusArrow (1)
+  m_Name: Rolling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1496050177
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7944,7 +7949,7 @@ GameObject:
   - component: {fileID: 2087644105}
   - component: {fileID: 2087644104}
   m_Layer: 0
-  m_Name: Rolling
+  m_Name: RollingPowerUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

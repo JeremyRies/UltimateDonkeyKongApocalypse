@@ -18,7 +18,6 @@ public class DonkeyKongController : MonoBehaviour
 
     private TopDownBarrel projectile;
 
-    [SerializeField] private CollectableEnum activeSpecial;
 
     Animator DonkeyAnimator;
     private float _timeSinceLastShot;
@@ -29,7 +28,6 @@ public class DonkeyKongController : MonoBehaviour
        DonkeyAnimator = GetComponent<Animator>();
         _timeSinceLastShot = _shotCooldown;
         projectile = InventoryManager.Instance._collectablePrefabDictionary[CollectableEnum.Normal].GetComponent<TopDownBarrel>();
-        activeSpecial = CollectableEnum.Big;
     }
 
     void Update ()
@@ -55,10 +53,10 @@ public class DonkeyKongController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.X))
         {
-            if (InventoryManager.Instance._collectableAmountDictionary[activeSpecial]!=0 && !_collectableRunning)
+            if (InventoryManager.Instance.GetActiveSpecialAmount()!=0 && !_collectableRunning)
             {
-                projectile = InventoryManager.Instance._collectablePrefabDictionary[activeSpecial].GetComponent<TopDownBarrel>();
-                InventoryManager.Instance.RemoveCollectable(activeSpecial);
+                projectile = InventoryManager.Instance.GetActiveSpecial().GetComponent<TopDownBarrel>();
+                InventoryManager.Instance.RemoveCollectableFromActive();
                 StartCoroutine(CollectableTimer());
             }
             
