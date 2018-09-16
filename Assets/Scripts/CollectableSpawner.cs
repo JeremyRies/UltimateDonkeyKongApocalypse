@@ -41,10 +41,11 @@ public class CollectableSpawner : MonoBehaviour
 	{
 		List<CollectableEnum> collectables = new List<CollectableEnum>
 		{
-			CollectableEnum.Big, CollectableEnum.Luigi, CollectableEnum.Pow
+			CollectableEnum.Big, CollectableEnum.Luigi, CollectableEnum.Pow, CollectableEnum.Daisy
 		};
 		
-		return collectables[Random.Range(0,3)];
+		//return collectables[Random.Range(0,4)];
+		return CollectableEnum.Daisy;
 	}
 	
 }
