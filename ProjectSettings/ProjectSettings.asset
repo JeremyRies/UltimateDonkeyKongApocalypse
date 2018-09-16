@@ -616,7 +616,7 @@ PlayerSettings:
   cloudServicesEnabled:
     UNet: 1
   facebookSdkVersion: 7.9.4
-  apiCompatibilityLevel: 2
+  apiCompatibilityLevel: 3
   cloudProjectId: 0b109901-0889-42b6-bed7-82d2da52f486
   projectName: UltimateDonkeyKongApocalypse
   organizationId: cellet
