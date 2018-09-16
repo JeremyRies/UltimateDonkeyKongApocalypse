@@ -5,7 +5,7 @@ using UnityEngine;
 public class MarioSpawner : MonoBehaviour
 {
     [SerializeField] public float _setupTime;
-    [SerializeField] private float _spawnsPerSeconds;
+    [SerializeField] public float _spawnsPerSeconds;
     [SerializeField] private float _increaseAddendOfSpawns;
     [SerializeField] private float _waveSize;
     [SerializeField] private float _increaseAddendOfWaveSize;

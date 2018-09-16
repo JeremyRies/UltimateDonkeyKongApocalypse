@@ -5,11 +5,14 @@ using UnityEngine;
 public class LuigiPipe : MonoBehaviour {
 
     public int duration;
+    public MarioSpawner LuigiSpawner;
 
 	// Use this for initialization
 	void Start () {
         StartCoroutine(Die());
-	}
+        RandomMove();
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -23,32 +26,32 @@ public class LuigiPipe : MonoBehaviour {
         switch (rand)
         {
             case 0:
-                Move(Vector2.right);
+                transform.position = new Vector2(6.51998f, -2.40f);
 
                 break;
 
             case 1:
-                Move(Vector2.left);
+                transform.position = new Vector2(6.51998f, 0.83f);
 
                 break;
 
             case 2:
-                Move(Vector2.left);
+                transform.position = new Vector2(6.51998f, 0.67f);
 
                 break;
 
             case 3:
-                Move(Vector2.left);
+                transform.position = new Vector2(6.51998f, 2.17f);
 
                 break;
 
             case 4:
-                Move(Vector2.left);
+                transform.position = new Vector2(6.51998f, 3.8f);
 
                 break;
 
             default:
-                Move(Vector2.zero);
+                transform.position = new Vector2(6.51998f, -2.33f);
                 break;
         }
     }
@@ -74,7 +77,7 @@ public class LuigiPipe : MonoBehaviour {
 
         while (state == 2)
         {
-
+            Destroy(LuigiSpawner);
             yield return new WaitForSeconds(4);
             state = 3;
         }
