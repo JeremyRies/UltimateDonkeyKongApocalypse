@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Sound;
 using UnityEngine;
 
 public static class StateController
@@ -22,6 +23,7 @@ public static class StateController
     public static void GameOver()
     {
         IsPaused = true;
+        SoundEffectService.Instance.PlayClip(ClipIdentifier.GameOver);
         GameObject.Find("UICanvas").GetComponent<StateControllerMono>().InstantiateGameOverPanel();
     }
 
