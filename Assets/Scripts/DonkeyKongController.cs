@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using Sound;
 using UnityEngine;
 using UnityEngine.Experimental.UIElements;
 using UnityEngine.UI;
@@ -68,6 +69,7 @@ public class DonkeyKongController : MonoBehaviour
                     Instantiate(InventoryManager.Instance._collectablePrefabDictionary[obj]);
                 }
             
+                SoundEffectService.Instance.PlayClip(ClipIdentifier.ItemsActivate);
                 InventoryManager.Instance.RemoveCollectableFromActive();
                
             }
@@ -95,6 +97,8 @@ public class DonkeyKongController : MonoBehaviour
     {
         DonkeyAnimator.SetBool("shoot", true);
         var barrelInstance = Instantiate(projectile, new Vector2(transform.position.x, transform.position.y+0.5f), Quaternion.identity);
+        
+        SoundEffectService.Instance.PlayClip(ClipIdentifier.DonkeyKong);
     }
 
     private void GoLeft()
@@ -111,6 +115,7 @@ public class DonkeyKongController : MonoBehaviour
     public void ReceivedCollectable(CollectableEnum typeOfCollectable)
     {
         InventoryManager.Instance.AddCollectable(typeOfCollectable);
+        SoundEffectService.Instance.PlayClip(ClipIdentifier.ItemsCollect);
     }
 
     IEnumerator CollectableTimer()

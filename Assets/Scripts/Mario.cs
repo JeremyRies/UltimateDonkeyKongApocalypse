@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Sound;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -92,6 +93,7 @@ public class Mario : MonoBehaviour {
 
     public IEnumerator Die()
     {
+        SoundEffectService.Instance.PlayClip(ClipIdentifier.Death);
         int state = 0;
         dead = true;
         GetComponent<BoxCollider2D>().enabled = false;
