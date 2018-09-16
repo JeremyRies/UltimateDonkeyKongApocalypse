@@ -16,8 +16,8 @@ public class GameOverPanel : MonoBehaviour
     private bool _focusingNext;
     private string _name = "AAAA";
     private int _focusedLetterPosition;
-    private const float LetterOffset = 16f;
-    private const float DefaultOffset = -73.5f;
+    private const float LetterOffset = 32f;
+    private const float DefaultOffset = -147.5f;
 
     private void Update()
     {
@@ -98,7 +98,6 @@ public class GameOverPanel : MonoBehaviour
         var focusedCharInt = Convert.ToInt32(chars[_focusedLetterPosition]);
         if (shouldIncrease) focusedCharInt++;
         else focusedCharInt--;
-        Debug.Log(focusedCharInt);
         chars[_focusedLetterPosition] = Convert.ToChar(FindLink(focusedCharInt));
         _name = chars.ArrayToString();
         _nameText.text = _name;

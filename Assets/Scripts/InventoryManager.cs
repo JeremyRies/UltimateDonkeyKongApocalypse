@@ -70,7 +70,9 @@ public class InventoryManager : MonoBehaviour
 		_luigiAmountText.text = _collectableAmountDictionary[CollectableEnum.Luigi].ToString();
 		_daisyAmountText.text = _collectableAmountDictionary[CollectableEnum.Daisy].ToString();
 		_powAmountText.text = _collectableAmountDictionary[CollectableEnum.Pow].ToString();
-		
+
+        if (StateController.IsPaused) return;
+
 		if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
 		{
 			if (activeSpecial > 0)
